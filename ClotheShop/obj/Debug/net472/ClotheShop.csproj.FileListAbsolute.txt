@@ -1,0 +1,15 @@
+C:\Users\84355\source\repos\ClotheShop\ClotheShop\obj\Debug\net472\ClotheShop.csproj.AssemblyReference.cache
+C:\Users\84355\source\repos\ClotheShop\ClotheShop\obj\Debug\net472\ClotheShop.csproj.SuggestedBindingRedirects.cache
+C:\Users\84355\source\repos\ClotheShop\ClotheShop\obj\Debug\net472\ClotheShop.exe.config
+C:\Users\84355\source\repos\ClotheShop\ClotheShop\obj\Debug\net472\ClotheShop.CustomControl.customButton.resources
+C:\Users\84355\source\repos\ClotheShop\ClotheShop\obj\Debug\net472\ClotheShop.CustomControl.CustomTextBox.resources
+C:\Users\84355\source\repos\ClotheShop\ClotheShop\obj\Debug\net472\ClotheShop.flogin.resources
+C:\Users\84355\source\repos\ClotheShop\ClotheShop\obj\Debug\net472\ClotheShop.MyForm.MainForm.resources
+C:\Users\84355\source\repos\ClotheShop\ClotheShop\obj\Debug\net472\ClotheShop.MyForm.ProductViewForm.resources
+C:\Users\84355\source\repos\ClotheShop\ClotheShop\obj\Debug\net472\ClotheShop.MyForm.UserForm.resources
+C:\Users\84355\source\repos\ClotheShop\ClotheShop\obj\Debug\net472\ClotheShop.Properties.Resources.resources
+C:\Users\84355\source\repos\ClotheShop\ClotheShop\obj\Debug\net472\ClotheShop.csproj.GenerateResource.cache
+C:\Users\84355\source\repos\ClotheShop\ClotheShop\obj\Debug\net472\ClotheShop.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\84355\source\repos\ClotheShop\ClotheShop\obj\Debug\net472\ClotheShop.AssemblyInfoInputs.cache
+C:\Users\84355\source\repos\ClotheShop\ClotheShop\obj\Debug\net472\ClotheShop.AssemblyInfo.cs
+C:\Users\84355\source\repos\ClotheShop\ClotheShop\obj\Debug\net472\ClotheShop.csproj.CoreCompileInputs.cache

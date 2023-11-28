@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>C:\Users\84355\source\repos\ClotheShop\ClotheShop\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Update="CustomControl\customButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="CustomControl\CustomTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="flogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MyForm\AccountViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MyForm\ActionViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MyForm\BillViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MyForm\BrandViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MyForm\CategoryViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MyForm\ChangePassForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MyForm\CreateBillForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MyForm\FormMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MyForm\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MyForm\ProductSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MyForm\ProductViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MyForm\RoleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MyForm\StatisticViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MyForm\UserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MyForm\UserInformationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MyForm\UserViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
