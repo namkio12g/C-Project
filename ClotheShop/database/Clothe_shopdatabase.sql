@@ -1,4 +1,5 @@
-
+CREATE SCHEMA `clothe_database` ;
+USE `clothe_database`;
 CREATE TABLE `User` (
 	`ID` INT NOT NULL AUTO_INCREMENT,
 	`Name` VARCHAR(255) NOT NULL,
