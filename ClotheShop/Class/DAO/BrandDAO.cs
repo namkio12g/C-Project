@@ -67,13 +67,13 @@ namespace ClotheShop.Class.DAO
         internal bool save(string name)
         {
             string sql = "INSERT INTO brand (name) VALUES ( @name ) ";
-            return DataProvider.Instance.ExecuteScalar(sql, new Object[] { name}) > -1;
+            return DataProvider.Instance.ExecuteInsertGetID(sql, new Object[] { name}) > -1;
         }
 
         internal bool update(int id, string name, int active)
         {
             string sql = "UPDATE brand SET name= @name ,active = @active WHERE id= @id ";
-            return DataProvider.Instance.ExecuteScalar(sql, new Object[] { name, active, id }) > -1;
+            return DataProvider.Instance.ExcuteNonQuery(sql, new Object[] { name, active, id }) ;
         }
     }
 }

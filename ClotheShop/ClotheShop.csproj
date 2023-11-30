@@ -41,7 +41,6 @@
     <Compile Update="MyForm\BillViewForm.cs" />
     <Compile Update="MyForm\RoleForm.cs" />
     <Compile Update="MyForm\UserViewForm.cs" />
-    <Compile Update="MyForm\UserForm.cs" />
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

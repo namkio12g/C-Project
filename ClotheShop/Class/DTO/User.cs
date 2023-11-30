@@ -33,7 +33,7 @@ namespace ClotheShop.Class.DTO
             Address = address;
             Phone = phone;
             Email = email;
-            CCCD = CCCD;
+            CCCD1 = CCCD;
         }
         public User(int id,string name, string address, string phone, string email, string CCCD,int roleID,int active)
         {

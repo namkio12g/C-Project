@@ -38,7 +38,6 @@ C:\Users\84355\source\repos\ClotheShop\ClotheShop\obj\Debug\net6.0-windows\Cloth
 C:\Users\84355\source\repos\ClotheShop\ClotheShop\obj\Debug\net6.0-windows\ClotheShop.genruntimeconfig.cache
 C:\Users\84355\source\repos\ClotheShop\ClotheShop\obj\Debug\net6.0-windows\ref\ClotheShop.dll
 C:\Users\84355\source\repos\ClotheShop\ClotheShop\obj\Debug\net6.0-windows\ClotheShop.CustomControl.ProductViewForm.resources
-C:\Users\84355\source\repos\ClotheShop\ClotheShop\obj\Debug\net6.0-windows\ClotheShop.CustomControl.UserForm.resources
 C:\Users\84355\source\repos\ClotheShop\ClotheShop\bin\Debug\net6.0-windows\Bunifu.Licensing.dll
 C:\Users\84355\source\repos\ClotheShop\ClotheShop\bin\Debug\net6.0-windows\RestSharp.dll
 C:\Users\84355\source\repos\ClotheShop\ClotheShop\bin\Debug\net6.0-windows\System.Management.dll

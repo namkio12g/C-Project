@@ -94,7 +94,7 @@ namespace ClotheShop.Class.BLL
                         else
                         {
                             Regex regexPhone = new Regex("^[0-9]+$", RegexOptions.Compiled);
-                            if (user.Phone1 == "" || user.Phone1.Length != 9 || !regexPhone.IsMatch(user.Phone1) || user.Phone1[0] != '0')
+                            if (user.Phone1 == "" || user.Phone1.Length != 10 || !regexPhone.IsMatch(user.Phone1) || user.Phone1[0] != '0')
                             {
                                 RJMessageBox.Show("Phone must have 10 digits and starts with 0", "phone is invalid!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 RePhonetxt.Focus();
@@ -112,6 +112,7 @@ namespace ClotheShop.Class.BLL
                                 {
                                     if (AccountDAO.Instance.register(account.UserName1, account.Password1, user.Name1, user.Phone1, user.Email1))
                                     {
+                                        RJMessageBox.Show("Successful", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         ReUserTxt.Texts = "";
                                         RePhonetxt.Texts = "";
                                         RegisCfPw.Texts = "";
@@ -143,7 +144,7 @@ namespace ClotheShop.Class.BLL
             return new Account((AccountDAO.Instance.GetById(id)).Rows[0]);
         }
 
-        internal void SaveProduct(Account acc, CustomTextBox passwordCfTxt, CustomTextBox passwordTxt)
+        internal bool SaveProduct(Account acc, CustomTextBox passwordCfTxt, CustomTextBox passwordTxt)
         {
             if (passwordTxt.Texts == "")
             {
@@ -168,11 +169,12 @@ namespace ClotheShop.Class.BLL
                     else
                     {
                         acc.Password1 = passwordCfTxt.Texts;
-                        AccountDAO.Instance.Save(acc);
+                        return AccountDAO.Instance.Save(acc);
                     }
 
                 }
             }
+            return false;
         }
 
         internal bool EditProduct(Account acc)

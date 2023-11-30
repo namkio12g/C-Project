@@ -85,12 +85,12 @@ namespace ClotheShop
                     }
                     else
                     {
-                        RJMessageBox.Show("UserName , password are wrong or account is not active ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                        RJMessageBox.Show("UserName , password are wrong or account is not active ", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    RJMessageBox.Show("UserName , password are wrong or account is not active ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                    RJMessageBox.Show("UserName , password are wrong or account is not active ", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 }
             }

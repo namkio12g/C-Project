@@ -51,14 +51,14 @@ namespace ClotheShop.Class.BLL
             return new Category(CategoryDAO.Instance.getCategoryById(id));
         }
 
-        internal void insertCate(string name)
+        internal bool insertCate(string name)
         {
-            CategoryDAO.Instance.save(name);
+            return CategoryDAO.Instance.save(name);
         }
 
-        internal void UpdateCate(int id, int active, string name)
+        internal bool UpdateCate(int id, int active, string name)
         {
-            CategoryDAO.Instance.update(name,active,id);
+            return CategoryDAO.Instance.update(name,active,id);
         }
     }
 }

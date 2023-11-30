@@ -89,7 +89,7 @@ namespace ClotheShop.MyForm
                     total += int.Parse(row[4].ToString());
 
                 }
-                BillBLL.Instance.createABill(CustomerNameTxt.Texts, billId, DateTime.Now, "1", CustomerPhoneTxt.Texts, CustomerAddressTxt.Texts, total);
+                BillBLL.Instance.createABill(CustomerNameTxt.Texts, billId, DateTime.Now, SessionClass.Instance.Account.ID1.ToString(), CustomerPhoneTxt.Texts, CustomerAddressTxt.Texts, total);
                 foreach (DataRow row in dataTable.Rows)
                 {
                     BillBLL.Instance.insertBillDetail(Convert.ToInt32(row[0].ToString()), billId, Convert.ToInt32(row[3].ToString()));
@@ -168,7 +168,7 @@ namespace ClotheShop.MyForm
             {
 
                 int id = Convert.ToInt32(IdTxt.Texts);
-                int number = 0;
+                int number = 1;
                 if (NumberTxt.Texts != "")
                     number = Convert.ToInt32(NumberTxt.Texts);
                 addProduct(id, number);
@@ -184,7 +184,7 @@ namespace ClotheShop.MyForm
             Product product = ProductBLL.Instance.getProductById(id);
             if (number < 0)
             {
-                number = 0;
+                number = 1;
             }
             if (product == null)
             {

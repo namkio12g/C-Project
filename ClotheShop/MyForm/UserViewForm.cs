@@ -11,6 +11,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -172,6 +173,7 @@ namespace ClotheShop.CustomControl
 
         private void saveBt_Click(object sender, EventArgs e)
         {
+            Regex regexEmail = new Regex("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$", RegexOptions.Compiled);
             if (nameDetail.Texts == "")
             {
                 RJMessageBox.Show("Name text box empty please fill the name text box! ", "Something missing", MessageBoxButtons.OK, MessageBoxIcon.Question);
@@ -180,7 +182,7 @@ namespace ClotheShop.CustomControl
             }
             else
             {
-                if (PhoneDetail.Texts == "")
+                if (PhoneDetail.Texts == "" )
                 {
                     RJMessageBox.Show("Phone text box empty ! ", "Something missing", MessageBoxButtons.OK, MessageBoxIcon.Question);
 
@@ -207,7 +209,7 @@ namespace ClotheShop.CustomControl
                         else
                         {
 
-                            if (EmailDetail.Texts == "")
+                            if (EmailDetail.Texts == "" )
                             {
                                 RJMessageBox.Show("Email text box empty! ", "Something missing", MessageBoxButtons.OK, MessageBoxIcon.Question);
 
@@ -215,21 +217,64 @@ namespace ClotheShop.CustomControl
                             }
                             else
                             {
-                                if (function == "add")
+                                if (PhoneDetail.Texts.Length != 10 || PhoneDetail.Texts[0] != '0')
                                 {
-                                    UserBLL.Instance.SaveUser(nameDetail.Texts, AddressDetail.Texts, PhoneDetail, CCCDDetail, EmailDetail);
+                                    RJMessageBox.Show("the phone is invalid,phone must have 10 digits and start with 0", "Something wrong", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
+                                    PhoneDetail.Focus();
                                 }
-                                else if (function == "edit")
+                                else
                                 {
-                                    UserBLL.Instance.EditUser(idDetail.Text,
-                                             nameDetail.Texts, AddressDetail.Texts, PhoneDetail, CCCDDetail, EmailDetail, RoleDetail.SelectedValue, ActiveDetail.SelectedItem.ToString()
-                                     );
+                                    if (CCCDDetail.Texts.Length != 10)
+                                    {
+                                        RJMessageBox.Show("the cccd is invalid,cccd must have 10 digits", "Something wrong", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                                }
-                                enabledTextbox(false);
-                                saveBt.Visible = false;
-                                loadData();
+                                        CCCDDetail.Focus();
+
+                                    }
+                                    else
+                                    {
+                                        if (!(regexEmail.IsMatch(EmailDetail.Texts)))
+                                        {
+
+                                            RJMessageBox.Show("the email is invalid", "Something wrong", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                                            EmailDetail.Focus();
+                                        }
+                                        else
+                                        {
+                                            bool flag=true;
+
+                                            if (function == "add")
+                                            {
+
+                                                flag=!UserBLL.Instance.SaveUser(nameDetail.Texts, AddressDetail.Texts, PhoneDetail, CCCDDetail, EmailDetail);
+
+                                            }
+                                            else if (function == "edit")
+                                            {
+                                                flag=!UserBLL.Instance.EditUser(idDetail.Text,
+                                                         nameDetail.Texts, AddressDetail.Texts, PhoneDetail, CCCDDetail, EmailDetail, RoleDetail.SelectedValue, ActiveDetail.SelectedItem.ToString()
+                                                 );
+
+                                            }
+                                            if (!flag)
+                                            {
+                                                RJMessageBox.Show("Action Failed!", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+
+                                            }
+                                            else
+                                            {
+                                                RJMessageBox.Show("Successful!", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+                                            }
+                                            saveBt.Visible = flag;
+
+
+                                            enabledTextbox(flag);
+                                        }
+                                    }
+                                } 
                             }
 
 
@@ -372,7 +417,7 @@ namespace ClotheShop.CustomControl
 
         private void BillBtChanged_Click(object sender, EventArgs e)
         {
-
+            loadForm(new BillViewForm());
         }
 
         private void AccountBtChanged_Click(object sender, EventArgs e)

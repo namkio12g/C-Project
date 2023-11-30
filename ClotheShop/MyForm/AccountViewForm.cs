@@ -193,23 +193,34 @@ namespace ClotheShop.CustomControl
                     }
                     else
                     {
+                        bool flag = true;
                         if (function == "add")
                         {
-                            AccountBLL.Instance.SaveProduct(
+                            flag=AccountBLL.Instance.SaveProduct(
                                 new Account(Convert.ToInt32(UserAccountDetail.SelectedValue), userNameDetail.Texts), PasswordCfTxt, PasswordTxt
                                 );
                         }
                         else if (function == "edit")
                         {
                             string a = idDetail.Text;
-                            bool flag = !AccountBLL.Instance.EditProduct(
+                            flag = !AccountBLL.Instance.EditProduct(
                                 new Account() { Active = Convert.ToInt32(ActiveDetail.SelectedItem.ToString()), UserName1 = userNameDetail.Texts, ID1 = Convert.ToInt32(idDetail.Text) }
                                 );
-                            enabledTextbox(flag);
-                            saveBt.Visible = flag;
+                            
 
                         }
+                        if( flag )
+                        {
+                        RJMessageBox.Show("Action Failed!", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
 
+                        }
+                        else
+                        {
+                            RJMessageBox.Show("Successful!", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+                        }
+                        enabledTextbox(flag);
+                        saveBt.Visible = flag;
                         loadData();
                     }
                 }

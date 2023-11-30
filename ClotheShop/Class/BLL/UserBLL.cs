@@ -31,45 +31,17 @@ namespace ClotheShop.Class.BLL
             return UserDAO.Instance.CheckActiveUser(iD_user1);
         }
 
-        internal void EditUser(string idString, string name, string address, CustomTextBox phoneDetail, CustomTextBox cCCDDetail, CustomTextBox emailDetail, object selectedValue,string active)
+        internal bool EditUser(string idString, string name, string address, CustomTextBox phoneDetail, CustomTextBox cCCDDetail, CustomTextBox emailDetail, object selectedValue,string active)
         {
-            Regex regexphone = new Regex("^[0-9]+$", RegexOptions.Compiled);
-            Regex regexEmail = new Regex("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$", RegexOptions.Compiled);
             string phone = phoneDetail.Texts;
             string cccd = cCCDDetail.Texts;
             string email = emailDetail.Texts;
             string role = selectedValue.ToString();
 
-            if (!regexphone.IsMatch(phone) || phone.Length != 10 || phone[0]!='0')
-            {
-                RJMessageBox.Show("the phone is invalid,phone must have 10 digits and start with 0", "Something wrong", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                phoneDetail.Focus();
-            }
-            else
-            {
-                if (!regexphone.IsMatch(cccd) || cccd.Length != 10)
-                {
-                    RJMessageBox.Show("the cccd is invalid,cccd must have 10 digits", "Something wrong", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                    cCCDDetail.Focus();
-
-                }
-                else
-                {
-                    if (!(regexEmail.IsMatch(email)))
-                    {
-
-                        RJMessageBox.Show("the email is invalid", "Something wrong", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                        emailDetail.Focus();
-                    }
-                    else
-                    {   
-                        UserDAO.Instance.Edit(new User(Convert.ToInt32(idString),name, address, phone, email, cccd, Convert.ToInt32(role), Convert.ToInt32(active)) { Active=1});
-                    }
-                }
-            }
+                        return UserDAO.Instance.Edit(new User(Convert.ToInt32(idString),name, address, phone, email, cccd, Convert.ToInt32(role), Convert.ToInt32(active)) { Active=1});
+                    
+                
+            
         }
 
         internal void getCombobox(ComboBox comboBox)
@@ -114,44 +86,19 @@ namespace ClotheShop.Class.BLL
             DGV.DataSource = UserDAO.Instance.GetUserListByRole(role);
         }
 
-        internal void SaveUser(string name, string address, CustomTextBox phoneDetail, CustomTextBox cCCDDetail, CustomTextBox emailDetail)
+        internal bool SaveUser(string name, string address, CustomTextBox phoneDetail, CustomTextBox cCCDDetail, CustomTextBox emailDetail)
         {
-            Regex regexphone = new Regex("^[0-9]+$", RegexOptions.Compiled);
-            Regex regexEmail = new Regex("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$", RegexOptions.Compiled);
+           
             string phone = phoneDetail.Texts;
             string cccd=cCCDDetail.Texts;
             string email = emailDetail.Texts;
 
-            if (!regexphone.IsMatch(phone) || phone.Length != 10 || phone[0] != '0')
-
-            {
-                RJMessageBox.Show("the phone is invalid,phone must have 10 digits and start with 0", "Something wrong", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-
-                phoneDetail.Focus();
-            }
-            else
-            {
-                if(!regexphone.IsMatch(cccd)  || cccd.Length != 10)
-                {
-                    RJMessageBox.Show("the cccd is invalid,cccd must have 10 digits", "Something wrong", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                    cCCDDetail.Focus();
-
-                }
-                else
-                {
-                    if (!(regexEmail.IsMatch(email))){
-                        RJMessageBox.Show("the email is invalid", "Something wrong", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                        emailDetail.Focus();
-                    }
-                    else
-                    {
-                        UserDAO.Instance.Save(new User(name, address, phone, email, cccd));
-                    }
-                }
-            }
+           
+                    
+            return UserDAO.Instance.Save(new User(name, address, phone, email, cccd));
+                   
+                
+            
         }
     }
 }

@@ -25,9 +25,9 @@ namespace ClotheShop.Class.DAO
         internal bool Edit(User user)
         {
             string sql = "UPDATE user Set name = @name ,address = @address ,phone = @phone ,email = @email ,cccd = @cccd ,role = @role ,active= @active WHERE id= @id AND id <> 0 ";
-            return DataProvider.Instance.ExecuteScalar(sql, new Object[] {
+            return DataProvider.Instance.ExcuteNonQuery(sql, new Object[] {
                 user.Name1,user.Address1,user.Phone1,user.Email1,user.CCCD1,user.RoleID,user.Active,user.Id
-            }) > -1;
+            }) ;
         }
 
         internal DataTable getUserCombobox()
@@ -108,8 +108,8 @@ namespace ClotheShop.Class.DAO
 
         internal bool Save(User user)
         {
-            String sql = "INSERT INTO user (name,phone,address,email,cccd) VALUES ( @name, @phone , @address , @email , @cccd)";
-            return DataProvider.Instance.ExecuteScalar(sql, new Object[] {
+            String sql = "INSERT INTO user (name,phone,address,email,cccd) VALUES ( @name , @phone , @address , @email , @cccd ) ";
+            return DataProvider.Instance.ExecuteInsertGetID(sql, new Object[] {
                 user.Name1,user.Phone1,user.Address1,user.Email1,user.CCCD1
             }) > -1;
         }

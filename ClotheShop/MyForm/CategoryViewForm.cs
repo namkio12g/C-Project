@@ -165,17 +165,31 @@ namespace ClotheShop.CustomControl
         private void saveBt_Click(object sender, EventArgs e)
         {
             string name = nameDetail.Texts;
-
+            bool flag;
             if (function == "add")
             {
-                CategoryBLL.Instance.insertCate(name);
+                flag=!CategoryBLL.Instance.insertCate(name);
             }
             else
             {
                 int id = Convert.ToInt32(idDetail.Text);
                 int active = Convert.ToInt32(ActiveDetail.SelectedItem.ToString());
-                CategoryBLL.Instance.UpdateCate(id, active, name);
+                flag=!CategoryBLL.Instance.UpdateCate(id, active, name);
             }
+            if (flag)
+            {
+                RJMessageBox.Show("Action Failed!", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+
+            }
+            else
+            {
+                RJMessageBox.Show("Successful!", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+            }
+            saveBt.Visible = flag;
+
+
+            enabledTextbox(flag);
             loadData();
 
 

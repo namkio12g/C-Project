@@ -62,7 +62,7 @@ namespace ClotheShop.Class.DAO
         public bool Insert(Product product){
             string sql = "INSERT INTO product (name,price,brand,category,quantity,image,description,created_by,created_date,edited_by,edited_date ,active)" +
                 " VALUES ( @name , @price , @brand , @category , @quantity , @image , @description , @created_by , @created_date , @edited_by , @edited_date ,1 )";
-            return DataProvider.Instance.ExecuteScalar(sql, new Object[] { 
+            return DataProvider.Instance.ExecuteInsertGetID(sql, new Object[] { 
                 product.Name,product.Price,product.BrandID,product.CategoryID,product.Quantity,product.Image,product.Description,SessionClass.Instance.Account.ID1,
                 product.Created_date,SessionClass.Instance.Account.ID1,product.Edited_date
             }) > -1;
@@ -71,9 +71,9 @@ namespace ClotheShop.Class.DAO
         public bool Update(Product product)
         {
             string sql = "UPDATE product SET name =  @name ,price = @price ,brand = @brand ,category = @category ,quantity = @quantity ,image = @image , description = @description ,edited_date = @date ,edited_by = @by ,active = @active WHERE id = @id";
-            return DataProvider.Instance.ExecuteScalar(sql, new Object[] {
+            return DataProvider.Instance.ExcuteNonQuery(sql, new Object[] {
                 product.Name,product.Price,product.BrandID,product.CategoryID,product.Quantity,product.Image,product.Description,DateTime.Now,null,product.Active,product.Id
-            }) > -1;
+            }) ;
         }
 
         internal bool Delete(int id)

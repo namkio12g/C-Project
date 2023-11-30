@@ -34,7 +34,7 @@ namespace ClotheShop.Class.BLL
             Product product =ProductDAO.Instance.getProductbyId(id) ;
             return product;
         }
-        public void SaveProduct(Product product,CustomTextBox name,CustomTextBox price,CustomTextBox quantity)
+        public bool SaveProduct(Product product,CustomTextBox name,CustomTextBox price,CustomTextBox quantity)
         {
             Regex regexname = new Regex("^[0-9]+$", RegexOptions.Compiled);
             if (!regexname.IsMatch(price.Texts))
@@ -58,7 +58,7 @@ namespace ClotheShop.Class.BLL
                     if (Convert.ToInt32(quantity.Texts) > 0)
                     {
                         product.Quantity = Convert.ToInt32(quantity.Texts);
-                        ProductDAO.Instance.Insert(product);
+                        return ProductDAO.Instance.Insert(product);
                     }
                     else
                     {
@@ -69,6 +69,7 @@ namespace ClotheShop.Class.BLL
                     }
                 }
             }
+            return false;
         }
 
         internal bool EditProduct(string id,Product product, CustomTextBox nameDetail, CustomTextBox price, CustomTextBox quantity,string active,Form form)

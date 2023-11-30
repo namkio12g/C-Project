@@ -275,36 +275,40 @@ namespace ClotheShop.CustomControl
                                     }
                                     else
                                     {
+                                        bool flag = true;
                                         if (function == "add")
                                         {
-                                            ProductBLL.Instance.SaveProduct(
+                                            flag= !ProductBLL.Instance.SaveProduct(
                                                 new Product(
                                                     nameDetail.Texts, DescriptionDetail.Text, CategoryDetail.SelectedValue.ToString(), brandDetail.SelectedValue.ToString(),
                                                     anh, createdTimeDetail.Value, "", ""), nameDetail, priceDetail, QuantityDetail
                                                 );
-                                            RJMessageBox.Show("Add successful! ", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                           
 
 
                                         }
                                         else if (function == "edit")
                                         {
-                                            bool flag = !ProductBLL.Instance.EditProduct(
+                                            flag = !ProductBLL.Instance.EditProduct(
                                                 idDetail.Text,
                                              new Product(
                                                      nameDetail.Texts, DescriptionDetail.Text, CategoryDetail.SelectedValue.ToString(), brandDetail.SelectedValue.ToString(),
                                                     anh, createdTimeDetail.Value, "", ""), nameDetail, priceDetail, QuantityDetail, ActiveDetail.SelectedItem.ToString(), this
                                              );
-                                            enabledTextbox(flag);
-                                            saveBt.Visible = flag;
-                                            if (flag)
-                                            {
-                                                RJMessageBox.Show("Edit successful! ", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                                            }
+                                           
+                                          
 
                                         }
+                                        if (!flag)
+                                        {
+                                            RJMessageBox.Show(" successful! ", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                                         
+                                        }
+                                        enabledTextbox(flag);
+                                        saveBt.Visible = flag;
                                         loadData();
+                                    
                                     }
                                 }
                                 else
@@ -333,6 +337,8 @@ namespace ClotheShop.CustomControl
             nameDetail.Texts = "";
             idDetail.Text = "";
             createdTimeDetail.Value = DateTime.Today;
+            ActiveChB.Enabled = false;
+            ActiveDetail.Text = "1";
             editedTimeDetail.Value = DateTime.Today;
             editedbyDetail.Texts = "";
             CreatedbyDetail.Texts = "";

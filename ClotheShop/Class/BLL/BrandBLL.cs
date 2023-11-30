@@ -52,14 +52,14 @@ namespace ClotheShop.Class.BLL
             return BrandDAO.Instance.GetDataTableSearched(id, name, inactiveChecked);
         }
 
-        internal void insertBrand(string name)
+        internal bool insertBrand(string name)
         {
-            BrandDAO.Instance.save(name);
+            return BrandDAO.Instance.save(name);
         }
 
-        internal void UpdateBrand(int id, int active, string name)
+        internal bool UpdateBrand(int id, int active, string name)
         {
-            BrandDAO.Instance.update(id,name,active);
+            return BrandDAO.Instance.update(id,name,active);
         }
     }
 }

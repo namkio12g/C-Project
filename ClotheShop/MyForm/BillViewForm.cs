@@ -51,14 +51,7 @@ namespace ClotheShop.CustomControl
             {
                 RoleBtChanged.Visible = false;
             }
-            //if (SessionClass.Instance.List_action.IndexOf(5) == -1 && SessionClass.Instance.UserRole1 != 0)
-            //{
-            //    addButton.Visible = false;
-            //}
-            //if (SessionClass.Instance.List_action.IndexOf(6) == -1 && SessionClass.Instance.UserRole1 != 0)
-            //{
-            //    EditButton.Visible = false;
-            //}
+
         }
         private void BillViewForm_Load(object sender, EventArgs e)
         {

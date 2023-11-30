@@ -80,14 +80,14 @@ namespace ClotheShop.Class.BLL
             return new Role(RoleDAO.Instance.getProductById(id).Rows[0]);
         }
 
-        internal void insertRole(string name)
+        internal bool insertRole(string name)
         {
-            RoleDAO.Instance.save(name);
+            return RoleDAO.Instance.save(name);
         }
 
-        internal void UpdateRole(int id, int active,string name)
+        internal bool UpdateRole(int id, int active,string name)
         {
-            RoleDAO.Instance.update(id,active,name);
+            return RoleDAO.Instance.update(id,active,name);
 
         }
     }

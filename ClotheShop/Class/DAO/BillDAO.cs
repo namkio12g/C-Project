@@ -34,8 +34,8 @@ namespace ClotheShop.Class.DAO
 
         internal System.Data.DataTable GetBillById(int id)
         {
-            string sql = " SELECT b.id,b.Customer_name,b.Customer_phone,b.Customer_address,b.Date_created,a.Username AS CreatedBy_name,b.total FROM bill AS b INNER JOIN account AS a ON b.Created_by = a.id";
-            return DataProvider.Instance.ExecuteQuery(sql);
+            string sql = " SELECT b.id,b.Customer_name,b.Customer_phone,b.Customer_address,b.Date_created,a.Username AS CreatedBy_name,b.total FROM bill AS b INNER JOIN account AS a ON b.Created_by = a.id WHERE b.id= @id ";
+            return DataProvider.Instance.ExecuteQuery(sql,new Object[] {id});
         }
          internal System.Data.DataTable GetProductListById(int id)
         {
@@ -55,13 +55,13 @@ namespace ClotheShop.Class.DAO
             return DataProvider.Instance.ExecuteScalar(sql, new Object[] { billId, idproduct,quantity }) > -1;
         }
 
-        internal System.Data.DataTable GetDataTableSearch(string id, string name, string botPrice, string topPrice, string timeTop, string timeBot, List<Product> list)
+        internal System.Data.DataTable GetDataTableSearch(string id, string phone, string botPrice, string topPrice, string timeTop, string timeBot, List<Product> list)
         {
             int idnum = -1;
             List<Object> listObject = new List<Object>();
             //listObject.Add(botPrice);
             //listObject.Add(topPrice);
-            string sql = " SELECT b.id,b.Customer_name,b.Customer_phone,a.Username AS created_by FROM bill AS b INNER JOIN account AS a ON b.Created_by = a.id ";
+            string sql = " SELECT b.id,b.Customer_Name,b.Customer_phone,a.Username AS created_by FROM bill AS b INNER JOIN account AS a ON b.Created_by = a.id ";
             if(list.Count > 0) {
                 sql += "INNER JOIN bill_detail bd ON b.id = bd.bill_id WHERE bd.product_id IN ( ";
                 for (int i =0;i<list.Count-1;i++)
@@ -81,11 +81,11 @@ namespace ClotheShop.Class.DAO
                 sql += " AND b.id= @id ";
                 listObject.Add(Convert.ToInt32(id));
             }
-            if(name != "")
+            if(phone != "")
             {
-                sql += " AND b.Customer_name.name LIKE @name";
-                name = "%" + name + "%";
-                listObject.Add(name);
+                sql += " AND b.Customer_phone LIKE @phone";
+                phone = "%" + phone + "%";
+                listObject.Add(phone);
             }
             if (timeTop != "")
             {

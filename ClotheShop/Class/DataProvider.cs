@@ -114,7 +114,44 @@ namespace ClotheShop.Class
                         }
                     }
                 }
-                object result=cmd.ExecuteScalar();
+                object result= cmd.ExecuteScalar();
+                if (result == null)
+                {
+                    DataProvider.Conn.Close();
+
+                    return number;
+                }
+                number = Convert.ToInt32(result);
+                DataProvider.Conn.Close();
+
+
+            }
+
+            return number;
+        }
+        public int ExecuteUpdate(string sql, Object[] objs = null)
+        {
+            int number = -1;
+
+            using (DataProvider.Conn)
+            {
+                DataProvider.Conn.Open();
+                MySqlCommand cmd = new MySqlCommand(sql, Conn);
+                cmd.CommandType = CommandType.Text;
+                if (objs != null)
+                {
+                    string[] listpara = sql.Split(' ');
+                    int i = 0;
+                    foreach (string paraName in listpara)
+                    {
+
+                        if (paraName.Contains('@'))
+                        {
+                            cmd.Parameters.AddWithValue(paraName, objs[i++]);
+                        }
+                    }
+                }
+                object result = cmd.ExecuteNonQuery();
                 if (result == null)
                 {
                     DataProvider.Conn.Close();

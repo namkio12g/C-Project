@@ -31,12 +31,12 @@ namespace ClotheShop.Class.DAO
         }
         public bool register(string username, string password,string name,string phone,string email)
         {
-            string sql = "INSERT INTO user (Name,Phone,Email) VALUES ( @name , @phone , @email)";
+            string sql = "INSERT INTO user (Name,Phone,Email) VALUES ( @name , @phone , @email )";
 
             int IDInserted=DataProvider.Instance.ExecuteInsertGetID(sql,new Object[]{name,phone,email});
             DateTime dateCreate=DateTime.Now;
-            string sql2 = "INSERT INTO account (ID_user,UserName,Password,Date_Created) VALUES ( @IDUser , @username , @password , @dateCreated )";
-            return DataProvider.Instance.ExecuteScalar(sql2, new Object[] {IDInserted, username, password, dateCreate })>-1;
+            string sql2 = "INSERT INTO account (ID_user,UserName,Password,Date_Created,last_login,Date_Edited) VALUES ( @IDUser , @username , @password , @dateCreated , @date1 , @date2 )";
+            return DataProvider.Instance.ExecuteInsertGetID(sql2, new Object[] {IDInserted, username, password, dateCreate,dateCreate,dateCreate })>-1;
 
         }
 
@@ -60,7 +60,7 @@ namespace ClotheShop.Class.DAO
 
         internal DataTable GetDataTable()
         {
-            string sql = "SELECT a.ID,a.username,a.active,a.last_login,u.name AS name FROM account AS a INNER JOIN  user AS u ON a.ID_user = u.ID WHERE  a.id <> 0";
+            string sql = "SELECT a.ID,a.username,a.active,a.last_login,u.name AS name FROM account AS a INNER JOIN  user AS u ON a.ID_user = u.ID WHERE  a.id <> 0 AND a.active=1   ";
             return DataProvider.Instance.ExecuteQuery(sql);
         }
 
@@ -88,7 +88,7 @@ namespace ClotheShop.Class.DAO
             }
             if(!inactiveChecked)
             {
-                sql += " a.active=1 ";
+                sql += " AND a.active=1 ";
             }
             return DataProvider.Instance.ExecuteQuery(sql, list.ToArray());
         }
@@ -97,13 +97,13 @@ namespace ClotheShop.Class.DAO
         internal bool Save(Account acc)
         {
             string sql2 = "INSERT INTO account (ID_user,UserName,Password,Date_Created,last_login,date_edited,active) VALUES ( @IDUser , @username , @password , @dateCreated , @ll , @de ,1)";
-            return DataProvider.Instance.ExecuteScalar(sql2, new Object[] { acc.ID_user1, acc.UserName1, acc.Password1,DateTime.Now, DateTime.Now, DateTime.Now }) > -1;
+            return DataProvider.Instance.ExecuteInsertGetID(sql2, new Object[] { acc.ID_user1, acc.UserName1, acc.Password1,DateTime.Now, DateTime.Now, DateTime.Now }) > -1;
         }
 
         internal bool Update(Account acc)
         {
             string sql = "UPDATE account SET username= @username ,active = @active ,date_edited= @de WHERE id = @id";
-            return DataProvider.Instance.ExecuteScalar(sql, new Object[] {  acc.UserName1,acc.Active, DateTime.Now,acc.ID1}) > -1;
+            return DataProvider.Instance.ExcuteNonQuery(sql, new Object[] { acc.UserName1, acc.Active, DateTime.Now, acc.ID1 }) ;
 
         }
         internal void UpdateLoginDate(int id)
