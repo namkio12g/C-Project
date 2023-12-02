@@ -168,13 +168,13 @@ namespace ClotheShop.CustomControl
             bool flag;
             if (function == "add")
             {
-                flag=!CategoryBLL.Instance.insertCate(name);
+                flag = !CategoryBLL.Instance.insertCate(name);
             }
             else
             {
                 int id = Convert.ToInt32(idDetail.Text);
                 int active = Convert.ToInt32(ActiveDetail.SelectedItem.ToString());
-                flag=!CategoryBLL.Instance.UpdateCate(id, active, name);
+                flag = !CategoryBLL.Instance.UpdateCate(id, active, name);
             }
             if (flag)
             {
@@ -203,7 +203,10 @@ namespace ClotheShop.CustomControl
             //imageProductDetail.Image = null;
             nameDetail.Texts = "";
             idDetail.Text = "";
-            this.ProductListDGV.Rows.Clear();
+            if (ProductListDGV.Rows.Count > 0)
+            {
+                this.ProductListDGV.Rows.Clear();
+            }
             enabledTextbox(true);
             saveBt.Visible = true;
             function = "add";
@@ -347,12 +350,38 @@ namespace ClotheShop.CustomControl
         }
         private void ExportBt_Click(object sender, EventArgs e)
         {
-            string filePath = "C:\\Users\\84355\\source\\repos\\ClotheShop\\ClotheShop\\Xsls\\Category.xlsx";
+            using (SaveFileDialog openFileDialog = new SaveFileDialog())
+            {
+                openFileDialog.DefaultExt = "xlsx";
 
-            DataTable dataTable = SessionClass.Instance.GetDataGridViewAsDataTable(dataGridView1);
-            ExportDataTableToExcel(dataTable, filePath);
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = openFileDialog.FileName;
 
-            Console.WriteLine("Excel file created successfully.");
+                    DataTable dataTable = SessionClass.Instance.GetDataGridViewAsDataTable(dataGridView1);
+                    ExportDataTableToExcel(dataTable, filePath);
+                    RJMessageBox.Show(" Export successful! ", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+            }
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            if (idDetail.Text.ToString() != "")
+            {
+                CategoryBLL.Instance.Delete(Convert.ToInt32(idDetail.Text.ToString()));
+                RJMessageBox.Show("Successful ", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                idDetail.Text = "";
+                nameDetail.Texts = "";
+                ProductListDGV.DataSource = "";
+                enabledTextbox(false);
+
+                loadData();
+            }
+            else
+                RJMessageBox.Show("Plesase select a Category! ", "Something missing", MessageBoxButtons.OK, MessageBoxIcon.Question);
+
         }
     }
 }

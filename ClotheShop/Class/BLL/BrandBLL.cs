@@ -37,9 +37,14 @@ namespace ClotheShop.Class.BLL
             comboBox.ValueMember = "id";
         }
 
+        internal void Delete(int v)
+        {
+            BrandDAO.Instance.Delete(v);
+        }
+
         internal Brand getCategoryById(int id)
         {
-            return new Brand(BrandDAO.Instance.getCategoryById(id));
+            return new Brand(BrandDAO.Instance.getBrandById(id));
         }
 
         internal DataTable GetDataTable(DataGridView dgv)

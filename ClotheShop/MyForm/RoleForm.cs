@@ -168,13 +168,13 @@ namespace ClotheShop.CustomControl
             bool flag;
             if (function == "add")
             {
-                flag=!RoleBLL.Instance.insertRole(name);
+                flag = !RoleBLL.Instance.insertRole(name);
             }
             else
             {
                 int id = Convert.ToInt32(idDetail.Text);
                 int active = Convert.ToInt32(ActiveDetail.SelectedItem.ToString());
-                flag=!RoleBLL.Instance.UpdateRole(id, active, name);
+                flag = !RoleBLL.Instance.UpdateRole(id, active, name);
             }
             if (flag)
             {
@@ -332,6 +332,26 @@ namespace ClotheShop.CustomControl
         private void BrandBtChanged_Click(object sender, EventArgs e)
         {
             loadForm(new BrandViewForm());
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            if (idDetail.Text.ToString() != "")
+            {
+                RoleBLL.Instance.Delete(Convert.ToInt32(idDetail.Text.ToString()));
+                RJMessageBox.Show("Successful ", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                idDetail.Text = "";
+                nameDetail.Texts = "";
+                AccountListDGV.DataSource = "";
+                AccountListDGV.DataSource = "";
+                enabledTextbox(false);
+
+                loadData();
+            }
+
+            else
+                RJMessageBox.Show("Plesase select a Role! ", "Something missing", MessageBoxButtons.OK, MessageBoxIcon.Question);
+
         }
     }
 }

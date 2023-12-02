@@ -47,9 +47,11 @@ namespace ClotheShop.MyForm
 
         }
 
-        private void Form_ButtonClicked(object? sender, string value)
-        {
-            addProduct(int.Parse(value), 0);
+        private void Form_ButtonClicked(object? sender,CustomEventArgs c)
+        {  if(c.Value2.ToString()=="")
+            addProduct(int.Parse(c.ToString()), 0);
+           else
+                addProduct(int.Parse(c.Value1.ToString()), Convert.ToInt32(c.Value2.ToString()));
         }
 
         private void printPreviewControl1_Click(object sender, EventArgs e)
@@ -66,38 +68,46 @@ namespace ClotheShop.MyForm
             //ExportDataTableToExcel(dataTable, filePath);
 
             //Console.WriteLine("Excel file created successfully.");
-            bool flag = true;
-            for (int i = 0; i < dataTable.Rows.Count; i++)
+            if (dataTable.Rows.Count > 0)
             {
-                if (!ProductBLL.Instance.checkValidQuantity(Convert.ToInt32(dataTable.Rows[i][0].ToString()), Convert.ToInt32(dataTable.Rows[i][3].ToString())))
+                bool flag = true;
+                for (int i = 0; i < dataTable.Rows.Count; i++)
                 {
-                    flag = false;
-                    ProductListDGV.ClearSelection();
-                    ProductListDGV.Rows[i].Selected = true;
-                    RJMessageBox.Show($"Quantity of some product too hight row:{i + 1}! ", "Something wrong", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    if (!ProductBLL.Instance.checkValidQuantity(Convert.ToInt32(dataTable.Rows[i][0].ToString()), Convert.ToInt32(dataTable.Rows[i][3].ToString())))
+                    {
+                        flag = false;
+                        ProductListDGV.ClearSelection();
+                        ProductListDGV.Rows[i].Selected = true;
+                        RJMessageBox.Show($"Quantity of some product too hight row:{i + 1}! ", "Something wrong", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                    break;
+                        break;
+                    }
+                }
+                if (flag)
+                {
+                    printPreviewDialog1.Document = printDocument1;
+                    printPreviewDialog1.Show();
+                    int total = 0;
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        total += int.Parse(row[4].ToString());
+
+                    }
+                    BillBLL.Instance.createABill(CustomerNameTxt.Texts, billId, DateTime.Now, SessionClass.Instance.Account.ID1.ToString(), CustomerPhoneTxt.Texts, CustomerAddressTxt.Texts, total);
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        BillBLL.Instance.insertBillDetail(Convert.ToInt32(row[0].ToString()), billId, Convert.ToInt32(row[3].ToString()));
+
+                    }
+                    RJMessageBox.Show("A bill  is created! ", "S", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    cancel();
+
                 }
             }
-            if (flag)
+            else
             {
-                printPreviewDialog1.Document = printDocument1;
-                printPreviewDialog1.Show();
-                int total = 0;
-                foreach (DataRow row in dataTable.Rows)
-                {
-                    total += int.Parse(row[4].ToString());
-
-                }
-                BillBLL.Instance.createABill(CustomerNameTxt.Texts, billId, DateTime.Now, SessionClass.Instance.Account.ID1.ToString(), CustomerPhoneTxt.Texts, CustomerAddressTxt.Texts, total);
-                foreach (DataRow row in dataTable.Rows)
-                {
-                    BillBLL.Instance.insertBillDetail(Convert.ToInt32(row[0].ToString()), billId, Convert.ToInt32(row[3].ToString()));
-
-                }
-                RJMessageBox.Show("A bill  is created! ", "Something missing", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                cancel();
+                RJMessageBox.Show("Please add more product ", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
 
@@ -164,7 +174,7 @@ namespace ClotheShop.MyForm
 
         private void AddBt_Click(object sender, EventArgs e)
         {
-            if (NumberTxt.Texts != "")
+            if (IdTxt.Texts != "")
             {
 
                 int id = Convert.ToInt32(IdTxt.Texts);
@@ -228,6 +238,8 @@ namespace ClotheShop.MyForm
 
 
                 }
+                RJMessageBox.Show($"ADD SUCCESSFUL ", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
 
             }
         }
@@ -269,7 +281,7 @@ namespace ClotheShop.MyForm
         {
             form = new ProductSearchForm();
             form.ButtonClicked += Form_ButtonClicked;
-            form.Show();
+            form.ShowDialog();
         }
         private void show(string id)
         {

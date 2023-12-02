@@ -39,13 +39,13 @@ namespace ClotheShop.Class.DAO
         }
          internal System.Data.DataTable GetProductListById(int id)
         {
-            string sql = " SELECT p.name AS Name,bd.quantity,p.price*bd.quantity AS total FROM bill_detail AS bd INNER JOIN product AS p ON p.id = bd.product_id WHERE bd.Bill_id= @id ";
+            string sql = " SELECT p.Name AS Name,bd.Quantity,p.price*bd.quantity AS Total FROM bill_detail AS bd INNER JOIN product AS p ON p.id = bd.product_id WHERE bd.Bill_id= @id ";
             return DataProvider.Instance.ExecuteQuery(sql,new Object[] {id});
         }
 
         internal System.Data.DataTable GetDataTable()
         {
-            string sql = " SELECT b.id,b.Customer_name,b.Customer_phone,a.Username AS created_by FROM bill AS b INNER JOIN account AS a ON b.Created_by = a.id";
+            string sql = " SELECT b.Id,b.Customer_name,b.Customer_phone,a.Username AS Created_by FROM bill AS b INNER JOIN account AS a ON b.Created_by = a.id";
             return DataProvider.Instance.ExecuteQuery(sql);
         }
 

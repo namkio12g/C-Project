@@ -21,6 +21,7 @@ namespace ClotheShop.CustomControl
         private bool hoverBool;
         private Color hoverColor = Color.MediumAquamarine;
         private Color ClikedColor = Color.MediumAquamarine;
+        private bool clicked=false;
         private bool clickedBool;
         [Category("advanced custom")]
         public int BorderRadius
@@ -202,6 +203,18 @@ namespace ClotheShop.CustomControl
                 Color a= this.BackColor;
                 this.BackColor = clikedColor;
                 clikedColor = a;
+                clicked = true;
+
+            }
+        }
+        public void OutHanlder(object sender, EventArgs e)
+        {
+            if (clickedBool && clicked)
+            {
+                Color a = this.BackColor;
+                this.BackColor = clikedColor;
+                clikedColor = a;
+                clicked= false;
 
             }
         }

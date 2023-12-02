@@ -26,11 +26,16 @@ namespace ClotheShop.Class.DAO
         }
         public DataTable getBrandCombobox()
         {
-            string sql = "SELECT *  FROM Brand";
+            string sql = "SELECT CONCAT(id, ' - ', name) AS Name,id,Active FROM brand WHERE active = 1 ";
             return DataProvider.Instance.ExecuteQuery(sql);
         }
 
-        internal DataRow getCategoryById(int id)
+        internal void Delete(int id)
+        {
+            string sql = "UPDATE brand SET active = 0  WHERE id= @id ";
+            DataProvider.Instance.ExecuteScalar(sql, new Object[] { id });
+        }
+        internal DataRow getBrandById(int id)
         {
             string sql = "SELECT * FROM Brand WHERE id = @id ";
             return DataProvider.Instance.ExecuteQuery(sql,new object[] {id}).Rows[0];

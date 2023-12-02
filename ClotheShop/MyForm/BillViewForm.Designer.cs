@@ -389,10 +389,10 @@
             // 
             // CustomerAddDetail
             // 
-            CustomerAddDetail.BackColor = Color.White;
+            CustomerAddDetail.BackColor = Color.FromArgb(248, 244, 244);
             CustomerAddDetail.BorderColor = Color.Gray;
             CustomerAddDetail.BorderSize = 2;
-            CustomerAddDetail.EnableText = true;
+            CustomerAddDetail.EnableText = false;
             CustomerAddDetail.FocusedColor = Color.HotPink;
             CustomerAddDetail.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             CustomerAddDetail.ForeColor = SystemColors.ActiveCaptionText;
@@ -400,7 +400,7 @@
             CustomerAddDetail.Location = new Point(6, 161);
             CustomerAddDetail.Margin = new Padding(0);
             CustomerAddDetail.Name = "CustomerAddDetail";
-            CustomerAddDetail.OnlyNumber = true;
+            CustomerAddDetail.OnlyNumber = false;
             CustomerAddDetail.Padding = new Padding(8, 7, 8, 7);
             CustomerAddDetail.PasswordChar = false;
             CustomerAddDetail.placeHolderText = "";
@@ -707,6 +707,7 @@
             // 
             // ProductSearch
             // 
+            ProductSearch.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point);
             ProductSearch.FormattingEnabled = true;
             ProductSearch.Items.AddRange(new object[] { "", "Brand", "lo", "ld", "asd", "dasd" });
             ProductSearch.Location = new Point(507, 39);

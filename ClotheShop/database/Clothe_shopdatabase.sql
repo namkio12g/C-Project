@@ -113,7 +113,7 @@ ALTER TABLE `Product` ADD CONSTRAINT `Product_fk3` FOREIGN KEY (`Edited_by`) REF
 
 ALTER TABLE `Bill` ADD CONSTRAINT `Bill_fk0` FOREIGN KEY (`Created_by`) REFERENCES `Account`(`ID`);
 
-ALTER TABLE `Bill_detail` ADD CONSTRAINT `Bill_detail_fk0` FOREIGN KEY (`Bill_id`) REFERENCES `Bill`(`id`);
+ALTER TABLE `Bill_detail` ADD CONSTRAINT `Bill_detail_fk0` FOREIGN KEY (`Bill_id`) REFERENCES `Bill`(`id`) ON DELETE CASCADE; 
 
 ALTER TABLE `Bill_detail` ADD CONSTRAINT `Bill_detail_fk1` FOREIGN KEY (`Product_id`) REFERENCES `Product`(`ID`);
 

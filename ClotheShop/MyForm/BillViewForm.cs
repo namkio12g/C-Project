@@ -175,7 +175,7 @@ namespace ClotheShop.CustomControl
                 pd = ((Product)ProductSearch.SelectedItem);
 
             }
-            if (pd != null)
+            if (pd.Id != -1)
             {
                 bool isRowFound = false;
 
@@ -218,7 +218,7 @@ namespace ClotheShop.CustomControl
             }
             else
             {
-                RJMessageBox.Show("Plesase select a Account! ", "Something missing", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                RJMessageBox.Show("Plesase select a Bill! ", "Something missing", MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
         }
 
@@ -335,12 +335,20 @@ namespace ClotheShop.CustomControl
         }
         private void ExportBt_Click(object sender, EventArgs e)
         {
-            string filePath = "C:\\Users\\84355\\source\\repos\\ClotheShop\\ClotheShop\\Xsls\\bills.xlsx";
+            using (SaveFileDialog openFileDialog = new SaveFileDialog())
+            {
+                openFileDialog.DefaultExt = "xlsx";
 
-            DataTable dataTable = SessionClass.Instance.GetDataGridViewAsDataTable(dataGridView1);
-            ExportDataTableToExcel(dataTable, filePath);
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = openFileDialog.FileName;
 
-            Console.WriteLine("Excel file created successfully.");
+                    DataTable dataTable = SessionClass.Instance.GetDataGridViewAsDataTable(dataGridView1);
+                    ExportDataTableToExcel(dataTable, filePath);
+                    RJMessageBox.Show(" Export successful! ", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+            }
         }
     }
 }

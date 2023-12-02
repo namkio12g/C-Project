@@ -21,10 +21,12 @@ namespace ClotheShop.CustomControl
     {
         private string function = "";
         public string ReturnValue
+
         {
             get; set;
         }
-        public event EventHandler<string> ButtonClicked;
+        public event EventHandler<CustomEventArgs> ButtonClicked;
+
 
         public ProductSearchForm()
         {
@@ -59,6 +61,7 @@ namespace ClotheShop.CustomControl
 
                 showProductDetail(ProductBLL.Instance.getProductById(id));
 
+
             }
         }
         private void enabledTextbox(bool flag)
@@ -71,6 +74,7 @@ namespace ClotheShop.CustomControl
             priceDetail.EnableText = flag;
             DescriptionDetail.Enabled = flag;
             AddBillBt.Visible = false;
+            customTextBox1.Texts = "";
 
             if (function == "edit")
             {
@@ -205,7 +209,7 @@ namespace ClotheShop.CustomControl
         {
             if (idDetail.Text != "")
             {
-                
+
                 imageProductDetail.Image = null;
                 nameDetail.Texts = "";
                 idDetail.Text = "";
@@ -254,7 +258,7 @@ namespace ClotheShop.CustomControl
             string botPrice = priceRange.RangeMin.ToString();
             string topQuan = quantityRange.RangeMax.ToString();
             string botQuan = quantityRange.RangeMin.ToString();
-            ProductBLL.Instance.GetDataTableSearched(dataGridView1, IdSearchTextbox, name, brand, category, botPrice, topPrice, botQuan, topQuan, timeTop, timeBot,false);
+            ProductBLL.Instance.GetDataTableSearched(dataGridView1, IdSearchTextbox, name, brand, category, botPrice, topPrice, botQuan, topQuan, timeTop, timeBot, false);
 
         }
 
@@ -284,12 +288,12 @@ namespace ClotheShop.CustomControl
             }
 
         }
-
         private void AddBillBt_Click(object sender, EventArgs e)
         {
             string value = idDetail.Text;
+            string quantity = customTextBox1.Texts;
 
-            ButtonClicked?.Invoke(this, value);
+            ButtonClicked?.Invoke(this, new CustomEventArgs(value, quantity));
         }
 
         private void CloseBt_Click(object sender, EventArgs e)

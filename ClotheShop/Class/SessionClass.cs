@@ -17,6 +17,7 @@ namespace ClotheShop.Class
         private bool creatingBillFlag =true;
         private Account account=null;
         private List<int> list_action = new List<int>();
+   
         private int UserRole;
 
         public DataTable GetDataGridViewAsDataTable(DataGridView _DataGridView)

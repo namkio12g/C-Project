@@ -38,8 +38,9 @@ namespace ClotheShop.Class.DTO
             this.image = (byte[])data["Image"];
             this.created_date = (DateTime)data["Created_Date"];
             this.edited_date = (DateTime)data["Edited_Date"];
-            this.created_by = data["Edited_by"].ToString();
-            this.edited_by =data["Created_by"].ToString();
+            this.created_by = data["Created_by"].ToString(); 
+            this.edited_by = data["Edited_by"].ToString();
+
             this.active = (int)data["active"];
         }
         public Product(int id, string name)

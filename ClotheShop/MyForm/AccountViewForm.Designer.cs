@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AccountViewForm));
             dataGridView1 = new DataGridView();
             panel1 = new Panel();
@@ -85,6 +85,7 @@
             ActiveChB = new CheckBox();
             BillBtChanged = new customButton();
             ExportBt = new customButton();
+            DeleteBt = new customButton();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)imageProductDetail).BeginInit();
@@ -99,44 +100,44 @@
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SunkenHorizontal;
             dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.BottomLeft;
-            dataGridViewCellStyle5.BackColor = Color.Cornsilk;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = Color.FromArgb(0, 192, 192);
-            dataGridViewCellStyle5.Padding = new Padding(5, 0, 0, 5);
-            dataGridViewCellStyle5.SelectionBackColor = Color.Cornsilk;
-            dataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(0, 192, 192);
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.BottomLeft;
+            dataGridViewCellStyle1.BackColor = Color.Cornsilk;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(0, 192, 192);
+            dataGridViewCellStyle1.Padding = new Padding(5, 0, 0, 5);
+            dataGridViewCellStyle1.SelectionBackColor = Color.Cornsilk;
+            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(0, 192, 192);
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeight = 50;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = SystemColors.Window;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle6.Padding = new Padding(7, 0, 0, 0);
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.Padding = new Padding(7, 0, 0, 0);
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.GridColor = SystemColors.ActiveCaption;
             dataGridView1.Location = new Point(22, 374);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = SystemColors.Control;
-            dataGridViewCellStyle7.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle7.ForeColor = SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 51;
-            dataGridViewCellStyle8.BackColor = Color.LightSkyBlue;
-            dataGridViewCellStyle8.ForeColor = Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = Color.DarkOrchid;
-            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.BackColor = Color.LightSkyBlue;
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = Color.DarkOrchid;
+            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             dataGridView1.RowTemplate.Height = 29;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(799, 358);
@@ -169,6 +170,7 @@
             panel1.Controls.Add(uploadImageBt);
             panel1.Controls.Add(imageProductDetail);
             panel1.Dock = DockStyle.Right;
+            panel1.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point);
             panel1.Location = new Point(837, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(289, 732);
@@ -841,7 +843,7 @@
             ShowPassBt.HoverBool = false;
             ShowPassBt.HoverColor = Color.MediumAquamarine;
             ShowPassBt.ImageIcon = null;
-            ShowPassBt.Location = new Point(340, 251);
+            ShowPassBt.Location = new Point(439, 251);
             ShowPassBt.Name = "ShowPassBt";
             ShowPassBt.Size = new Size(128, 38);
             ShowPassBt.TabIndex = 85;
@@ -975,12 +977,40 @@
             ExportBt.UseVisualStyleBackColor = false;
             ExportBt.Click += ExportBt_Click;
             // 
+            // DeleteBt
+            // 
+            DeleteBt.BackColor = Color.Black;
+            DeleteBt.BackGColor = Color.Black;
+            DeleteBt.BorderColor = Color.HotPink;
+            DeleteBt.BorderRadius = 40;
+            DeleteBt.BorderSize = 0;
+            DeleteBt.ClickedBool = false;
+            DeleteBt.clikedColor = Color.MediumAquamarine;
+            DeleteBt.FlatAppearance.BorderSize = 0;
+            DeleteBt.FlatStyle = FlatStyle.Flat;
+            DeleteBt.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            DeleteBt.ForeColor = Color.White;
+            DeleteBt.HoverBool = false;
+            DeleteBt.HoverColor = Color.MediumAquamarine;
+            DeleteBt.Image = (Image)resources.GetObject("DeleteBt.Image");
+            DeleteBt.ImageIcon = (Image)resources.GetObject("DeleteBt.ImageIcon");
+            DeleteBt.Location = new Point(334, 251);
+            DeleteBt.Name = "DeleteBt";
+            DeleteBt.Size = new Size(94, 38);
+            DeleteBt.TabIndex = 93;
+            DeleteBt.Text = "Delete";
+            DeleteBt.Textcolor = Color.White;
+            DeleteBt.TextImageRelation = TextImageRelation.ImageBeforeText;
+            DeleteBt.UseVisualStyleBackColor = false;
+            DeleteBt.Click += DeleteBt_Click;
+            // 
             // AccountViewForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGreen;
             ClientSize = new Size(1126, 732);
+            Controls.Add(DeleteBt);
             Controls.Add(ExportBt);
             Controls.Add(BillBtChanged);
             Controls.Add(ActiveChB);
@@ -1085,5 +1115,6 @@
         private CheckBox ActiveChB;
         private customButton BillBtChanged;
         private customButton ExportBt;
+        private customButton DeleteBt;
     }
 }

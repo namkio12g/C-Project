@@ -10,6 +10,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -21,12 +22,12 @@ namespace ClotheShop.MyForm
         public UserInformationForm()
         {
             InitializeComponent();
-            u = UserBLL.Instance.getProductById(SessionClass.Instance.Account.ID_user1);
+            u = UserBLL.Instance.getUserById(SessionClass.Instance.Account.ID_user1);
             nameDetail.Texts = u.Name1;
             idDetail.Text = u.Id.ToString();
             AddressDetail.Texts = u.Address1;
             PhoneDetail.Texts = u.Phone1;
-            CCCDDetail.Texts = u.Phone1;
+            CCCDDetail.Texts = u.CCCD1;
             EmailDetail.Texts = u.Email1;
 
 
@@ -34,6 +35,8 @@ namespace ClotheShop.MyForm
 
         private void customButton2_Click(object sender, EventArgs e)
         {
+            Regex regexEmail = new Regex(@"^[a-zA-Z0-9._%+-]+@gmail\.com$");
+
             if (nameDetail.Texts == "")
             {
                 RJMessageBox.Show("Name text box empty please fill the name text box! ", "Something missing", MessageBoxButtons.OK, MessageBoxIcon.Question);
@@ -42,17 +45,17 @@ namespace ClotheShop.MyForm
             }
             else
             {
-                if (PhoneDetail.Texts == "")
+                if (PhoneDetail.Texts == "" ||PhoneDetail.Texts[0]!='0'||PhoneDetail.Texts.Length!=10)
                 {
-                    RJMessageBox.Show("Phone text box empty ! ", "Something missing", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                    RJMessageBox.Show("Phone text is invalid ! ", "Something missing", MessageBoxButtons.OK, MessageBoxIcon.Question);
 
                     PhoneDetail.Focus();
                 }
                 else
                 {
-                    if (CCCDDetail.Texts == "")
+                    if (CCCDDetail.Texts == "" || CCCDDetail.Texts.Length != 12)
                     {
-                        RJMessageBox.Show("CCCD text box empty please! ", "Something missing", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                        RJMessageBox.Show("CCCD text box is invalid! ", "Something missing", MessageBoxButtons.OK, MessageBoxIcon.Question);
 
                         CCCDDetail.Focus();
                     }
@@ -60,9 +63,9 @@ namespace ClotheShop.MyForm
                     {
 
 
-                        if (EmailDetail.Texts == "")
+                        if (EmailDetail.Texts == "" ||!regexEmail.IsMatch(EmailDetail.Texts))
                         {
-                            RJMessageBox.Show("Email text box empty! ", "Something missing", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                            RJMessageBox.Show("Email text box is invalid! ", "Something missing", MessageBoxButtons.OK, MessageBoxIcon.Question);
 
                             CCCDDetail.Focus();
                         }

@@ -36,6 +36,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductSearchForm));
             dataGridView1 = new DataGridView();
             panel1 = new Panel();
+            label25 = new Label();
+            customTextBox1 = new CustomTextBox();
             label24 = new Label();
             ActiveDetail = new ComboBox();
             label4 = new Label();
@@ -59,10 +61,10 @@
             nameDetail = new CustomTextBox();
             DescriptionDetail = new TextBox();
             brandDetail = new ComboBox();
+            AddBillBt = new customButton();
             label8 = new Label();
             uploadImageBt = new customButton();
             imageProductDetail = new PictureBox();
-            AddBillBt = new customButton();
             nameSearchTextbox = new CustomTextBox();
             searchButton = new customButton();
             bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(components);
@@ -150,6 +152,8 @@
             // panel1
             // 
             panel1.BackColor = Color.DeepSkyBlue;
+            panel1.Controls.Add(label25);
+            panel1.Controls.Add(customTextBox1);
             panel1.Controls.Add(label24);
             panel1.Controls.Add(ActiveDetail);
             panel1.Controls.Add(label4);
@@ -173,15 +177,50 @@
             panel1.Controls.Add(nameDetail);
             panel1.Controls.Add(DescriptionDetail);
             panel1.Controls.Add(brandDetail);
+            panel1.Controls.Add(AddBillBt);
             panel1.Controls.Add(label8);
             panel1.Controls.Add(uploadImageBt);
             panel1.Controls.Add(imageProductDetail);
-            panel1.Controls.Add(AddBillBt);
             panel1.Dock = DockStyle.Right;
             panel1.Location = new Point(837, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(289, 732);
             panel1.TabIndex = 1;
+            // 
+            // label25
+            // 
+            label25.AutoSize = true;
+            label25.Font = new Font("Century Schoolbook", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label25.ForeColor = Color.RosyBrown;
+            label25.Location = new Point(179, 667);
+            label25.Name = "label25";
+            label25.Size = new Size(77, 19);
+            label25.TabIndex = 66;
+            label25.Text = "Quantity";
+            // 
+            // customTextBox1
+            // 
+            customTextBox1.BackColor = Color.White;
+            customTextBox1.BorderColor = Color.Gray;
+            customTextBox1.BorderSize = 2;
+            customTextBox1.EnableText = true;
+            customTextBox1.FocusedColor = Color.HotPink;
+            customTextBox1.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            customTextBox1.ForeColor = SystemColors.ActiveCaptionText;
+            customTextBox1.IconImage = null;
+            customTextBox1.Location = new Point(173, 686);
+            customTextBox1.Margin = new Padding(0);
+            customTextBox1.Name = "customTextBox1";
+            customTextBox1.OnlyNumber = true;
+            customTextBox1.Padding = new Padding(8, 7, 8, 7);
+            customTextBox1.PasswordChar = false;
+            customTextBox1.placeHolderText = "";
+            customTextBox1.setIcon = false;
+            customTextBox1.SetPassword = false;
+            customTextBox1.Size = new Size(92, 37);
+            customTextBox1.TabIndex = 67;
+            customTextBox1.Texts = "";
+            customTextBox1.Underlined1 = false;
             // 
             // label24
             // 
@@ -478,7 +517,7 @@
             DescriptionDetail.Location = new Point(9, 543);
             DescriptionDetail.Multiline = true;
             DescriptionDetail.Name = "DescriptionDetail";
-            DescriptionDetail.Size = new Size(268, 126);
+            DescriptionDetail.Size = new Size(268, 123);
             DescriptionDetail.TabIndex = 36;
             // 
             // brandDetail
@@ -489,6 +528,31 @@
             brandDetail.Name = "brandDetail";
             brandDetail.Size = new Size(110, 29);
             brandDetail.TabIndex = 33;
+            // 
+            // AddBillBt
+            // 
+            AddBillBt.BackColor = Color.HotPink;
+            AddBillBt.BackGColor = Color.HotPink;
+            AddBillBt.BorderColor = Color.HotPink;
+            AddBillBt.BorderRadius = 40;
+            AddBillBt.BorderSize = 0;
+            AddBillBt.ClickedBool = false;
+            AddBillBt.clikedColor = Color.MediumAquamarine;
+            AddBillBt.FlatAppearance.BorderSize = 0;
+            AddBillBt.FlatStyle = FlatStyle.Flat;
+            AddBillBt.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            AddBillBt.ForeColor = Color.White;
+            AddBillBt.HoverBool = false;
+            AddBillBt.HoverColor = Color.MediumAquamarine;
+            AddBillBt.ImageIcon = null;
+            AddBillBt.Location = new Point(9, 675);
+            AddBillBt.Name = "AddBillBt";
+            AddBillBt.Size = new Size(146, 48);
+            AddBillBt.TabIndex = 65;
+            AddBillBt.Text = "Add to Bill";
+            AddBillBt.Textcolor = Color.White;
+            AddBillBt.UseVisualStyleBackColor = false;
+            AddBillBt.Click += AddBillBt_Click;
             // 
             // label8
             // 
@@ -537,31 +601,6 @@
             imageProductDetail.SizeMode = PictureBoxSizeMode.StretchImage;
             imageProductDetail.TabIndex = 0;
             imageProductDetail.TabStop = false;
-            // 
-            // AddBillBt
-            // 
-            AddBillBt.BackColor = Color.HotPink;
-            AddBillBt.BackGColor = Color.HotPink;
-            AddBillBt.BorderColor = Color.HotPink;
-            AddBillBt.BorderRadius = 40;
-            AddBillBt.BorderSize = 0;
-            AddBillBt.ClickedBool = false;
-            AddBillBt.clikedColor = Color.MediumAquamarine;
-            AddBillBt.FlatAppearance.BorderSize = 0;
-            AddBillBt.FlatStyle = FlatStyle.Flat;
-            AddBillBt.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            AddBillBt.ForeColor = Color.White;
-            AddBillBt.HoverBool = false;
-            AddBillBt.HoverColor = Color.MediumAquamarine;
-            AddBillBt.ImageIcon = null;
-            AddBillBt.Location = new Point(9, 674);
-            AddBillBt.Name = "AddBillBt";
-            AddBillBt.Size = new Size(268, 48);
-            AddBillBt.TabIndex = 65;
-            AddBillBt.Text = "Add to Bill";
-            AddBillBt.Textcolor = Color.White;
-            AddBillBt.UseVisualStyleBackColor = false;
-            AddBillBt.Click += AddBillBt_Click;
             // 
             // nameSearchTextbox
             // 
@@ -688,6 +727,7 @@
             // 
             // BrandSearch
             // 
+            BrandSearch.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point);
             BrandSearch.FormattingEnabled = true;
             BrandSearch.Items.AddRange(new object[] { "", "Brand", "lo", "ld", "asd", "dasd" });
             BrandSearch.Location = new Point(22, 114);
@@ -697,6 +737,7 @@
             // 
             // CategorySearch
             // 
+            CategorySearch.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point);
             CategorySearch.FormattingEnabled = true;
             CategorySearch.Items.AddRange(new object[] { "vietnam,dl,asdd,sad" });
             CategorySearch.Location = new Point(248, 114);
@@ -996,5 +1037,7 @@
         private PrintPreviewControl printPreviewControl1;
         private customButton AddBillBt;
         private customButton CloseBt;
+        private Label label25;
+        private CustomTextBox customTextBox1;
     }
 }

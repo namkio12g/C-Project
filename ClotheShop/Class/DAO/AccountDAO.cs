@@ -60,10 +60,14 @@ namespace ClotheShop.Class.DAO
 
         internal DataTable GetDataTable()
         {
-            string sql = "SELECT a.ID,a.username,a.active,a.last_login,u.name AS name FROM account AS a INNER JOIN  user AS u ON a.ID_user = u.ID WHERE  a.id <> 0 AND a.active=1   ";
+            string sql = "SELECT a.ID,a.Username,a.Active,a.Last_login,u.Name AS Name FROM account AS a INNER JOIN  user AS u ON a.ID_user = u.ID WHERE  a.id <> 0 AND a.active=1   ";
             return DataProvider.Instance.ExecuteQuery(sql);
         }
-
+        internal void Delete(int id)
+        {
+            string sql = "UPDATE user SET active = 0  WHERE id = @id ";
+            DataProvider.Instance.ExecuteScalar(sql, new Object[] { id });
+        }
         internal DataTable GetDataTableSearch(int id, string username, string useraccount, string timeTop, string timeBot, bool inactiveChecked)
         {   List<Object> list = new List<Object>();
             string sql = "SELECT a.ID,a.username,a.active,a.last_login,u.name AS name,a.active FROM account AS a INNER JOIN  user AS u ON a.ID_user = u.ID WHERE 1=1 AND a.id <> 0 ";

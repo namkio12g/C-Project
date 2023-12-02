@@ -36,6 +36,11 @@ namespace ClotheShop.Class.BLL
             comboBox.ValueMember = "ID";
         }
 
+        internal void Delete(int v)
+        {
+            RoleDAO.Instance.Delete(v);
+        }
+
         internal void getAuthorityByRole(int role, DataGridView DGV)
         {
             DGV.DataSource = RoleDAO.Instance.getAuthorityByRole(role);

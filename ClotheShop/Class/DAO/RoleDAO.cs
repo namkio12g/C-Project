@@ -1,4 +1,5 @@
 ﻿using ClotheShop.Class.DTO;
+using DocumentFormat.OpenXml.Office2010.Excel;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -24,7 +25,7 @@ namespace ClotheShop.Class.DAO
 
         internal DataTable getAuthorityByRole(int role)
         {
-            string sql = "SELECT a.name AS Action_Name FROM authority_detail AS ad INNER JOIN authority AS a ON ad.id_authority = a.id WHERE ad.id_role = @role ";
+            string sql = "SELECT a.Name AS Action_Name FROM authority_detail AS ad INNER JOIN authority AS a ON ad.id_authority = a.id WHERE ad.id_role = @role ";
             return DataProvider.Instance.ExecuteQuery(sql , new object[] { role });
         }
         internal DataTable GetDataTableSearched(string id, string name, bool inactiveChecked)
@@ -84,5 +85,12 @@ namespace ClotheShop.Class.DAO
             string sql = "UPDATE role SET name= @name ,active = @active  WHERE id = @id";
             return DataProvider.Instance.ExcuteNonQuery(sql, new Object[] { name,active,id }) ;
         }
+
+        internal bool Delete(int id)
+        {
+            string sql = "UPDATE role SET active=0 WHERE id = @id ";
+            return DataProvider.Instance.ExecuteScalar(sql, new Object[] { id }) > -1;
+        }
+
     }
 }

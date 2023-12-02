@@ -172,9 +172,9 @@
             label3.ForeColor = Color.White;
             label3.Location = new Point(22, 490);
             label3.Name = "label3";
-            label3.Size = new Size(54, 19);
+            label3.Size = new Size(99, 19);
             label3.TabIndex = 102;
-            label3.Text = "Name";
+            label3.Text = "Account list";
             // 
             // label1
             // 
@@ -183,9 +183,9 @@
             label1.ForeColor = Color.White;
             label1.Location = new Point(22, 300);
             label1.Name = "label1";
-            label1.Size = new Size(54, 19);
+            label1.Size = new Size(92, 19);
             label1.TabIndex = 101;
-            label1.Text = "Name";
+            label1.Text = "Action List";
             // 
             // ActionListDGV
             // 
@@ -695,6 +695,7 @@
             DeleteButton.Textcolor = Color.White;
             DeleteButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             DeleteButton.UseVisualStyleBackColor = false;
+            DeleteButton.Click += DeleteButton_Click;
             // 
             // label12
             // 

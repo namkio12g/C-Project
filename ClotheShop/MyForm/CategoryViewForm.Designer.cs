@@ -164,9 +164,9 @@
             label1.ForeColor = Color.White;
             label1.Location = new Point(22, 300);
             label1.Name = "label1";
-            label1.Size = new Size(54, 19);
+            label1.Size = new Size(99, 19);
             label1.TabIndex = 101;
-            label1.Text = "Name";
+            label1.Text = "Product list";
             // 
             // ProductListDGV
             // 
@@ -626,6 +626,7 @@
             DeleteButton.Textcolor = Color.White;
             DeleteButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             DeleteButton.UseVisualStyleBackColor = false;
+            DeleteButton.Click += DeleteButton_Click;
             // 
             // label12
             // 

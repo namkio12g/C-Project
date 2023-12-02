@@ -58,7 +58,7 @@ namespace ClotheShop.CustomControl
                 EditButton.Visible = false;
             }
         }
-        private void AccountViewForm_Load(object sender, EventArgs e)
+        private void UserViewForm_Load(object sender, EventArgs e)
         {
             idDetail.Text = "";
             saveBt.Visible = false;
@@ -79,7 +79,7 @@ namespace ClotheShop.CustomControl
                 int id = (int)row.Cells["ID"].Value;
 
 
-                showProductDetail(UserBLL.Instance.getProductById(id));
+                showProductDetail(UserBLL.Instance.getUserById(id));
                 AccountBLL.Instance.GetAccountListByIdUser(id, AccountListDGV);
                 saveBt.Visible = false;
 
@@ -92,6 +92,7 @@ namespace ClotheShop.CustomControl
             AddressDetail.EnableText = flag;
             CCCDDetail.Enabled = flag;
             EmailDetail.Enabled = flag;
+            PhoneDetail.Enabled = flag;
             if (function == "edit")
             {
                 ActiveDetail.Enabled = true;
@@ -173,7 +174,7 @@ namespace ClotheShop.CustomControl
 
         private void saveBt_Click(object sender, EventArgs e)
         {
-            Regex regexEmail = new Regex("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$", RegexOptions.Compiled);
+            Regex regexEmail = new Regex(@"^[a-zA-Z0-9._%+-]+@gmail\.com$");
             if (nameDetail.Texts == "")
             {
                 RJMessageBox.Show("Name text box empty please fill the name text box! ", "Something missing", MessageBoxButtons.OK, MessageBoxIcon.Question);
@@ -182,7 +183,7 @@ namespace ClotheShop.CustomControl
             }
             else
             {
-                if (PhoneDetail.Texts == "" )
+                if (PhoneDetail.Texts == "")
                 {
                     RJMessageBox.Show("Phone text box empty ! ", "Something missing", MessageBoxButtons.OK, MessageBoxIcon.Question);
 
@@ -209,7 +210,7 @@ namespace ClotheShop.CustomControl
                         else
                         {
 
-                            if (EmailDetail.Texts == "" )
+                            if (EmailDetail.Texts == "")
                             {
                                 RJMessageBox.Show("Email text box empty! ", "Something missing", MessageBoxButtons.OK, MessageBoxIcon.Question);
 
@@ -225,9 +226,9 @@ namespace ClotheShop.CustomControl
                                 }
                                 else
                                 {
-                                    if (CCCDDetail.Texts.Length != 10)
+                                    if (CCCDDetail.Texts.Length != 12)
                                     {
-                                        RJMessageBox.Show("the cccd is invalid,cccd must have 10 digits", "Something wrong", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                        RJMessageBox.Show("the cccd is invalid,cccd must have 12 digits", "Something wrong", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                                         CCCDDetail.Focus();
 
@@ -243,38 +244,40 @@ namespace ClotheShop.CustomControl
                                         }
                                         else
                                         {
-                                            bool flag=true;
+                                            bool flag = true;
 
                                             if (function == "add")
                                             {
 
-                                                flag=!UserBLL.Instance.SaveUser(nameDetail.Texts, AddressDetail.Texts, PhoneDetail, CCCDDetail, EmailDetail);
+                                                flag = !UserBLL.Instance.SaveUser(nameDetail.Texts, AddressDetail.Texts, PhoneDetail, CCCDDetail, EmailDetail);
 
                                             }
                                             else if (function == "edit")
                                             {
-                                                flag=!UserBLL.Instance.EditUser(idDetail.Text,
+                                                flag = !UserBLL.Instance.EditUser(idDetail.Text,
                                                          nameDetail.Texts, AddressDetail.Texts, PhoneDetail, CCCDDetail, EmailDetail, RoleDetail.SelectedValue, ActiveDetail.SelectedItem.ToString()
                                                  );
 
                                             }
                                             if (!flag)
                                             {
-                                                RJMessageBox.Show("Action Failed!", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+
+                                                RJMessageBox.Show("Successful!", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
                                             }
                                             else
                                             {
-                                                RJMessageBox.Show("Successful!", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                                                RJMessageBox.Show("Action Failed!", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
 
                                             }
                                             saveBt.Visible = flag;
 
 
                                             enabledTextbox(flag);
+                                            loadData();
                                         }
                                     }
-                                } 
+                                }
                             }
 
 
@@ -374,7 +377,7 @@ namespace ClotheShop.CustomControl
             string phone = PhoneSearchTxt.Texts;
             string name = NameSearchTxt.Texts;
 
-            string cccd = AddressSearchTxt.Texts;
+            string cccd = CCCDSearchTxt.Texts;
             string email = EmailSearchTxt.Texts;
             string id = IdSearchTxt.Texts;
 
@@ -455,12 +458,44 @@ namespace ClotheShop.CustomControl
         }
         private void ExportBt_Click(object sender, EventArgs e)
         {
-            string filePath = "C:\\Users\\84355\\source\\repos\\ClotheShop\\ClotheShop\\Xsls\\User.xlsx";
+            using (SaveFileDialog openFileDialog = new SaveFileDialog())
+            {
+                openFileDialog.DefaultExt = "xlsx";
 
-            DataTable dataTable = SessionClass.Instance.GetDataGridViewAsDataTable(dataGridView1);
-            ExportDataTableToExcel(dataTable, filePath);
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = openFileDialog.FileName;
 
-            Console.WriteLine("Excel file created successfully.");
+                    DataTable dataTable = SessionClass.Instance.GetDataGridViewAsDataTable(dataGridView1);
+                    ExportDataTableToExcel(dataTable, filePath);
+                    RJMessageBox.Show(" Export successful! ", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+            }
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            if (idDetail.Text.ToString() != "")
+            {
+                BrandBLL.Instance.Delete(Convert.ToInt32(idDetail.Text.ToString()));
+                RJMessageBox.Show("Successful ", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                idDetail.Text = "";
+                nameDetail.Texts = "";
+                AddressDetail.Texts = "";
+                PhoneDetail.Texts = "";
+                CCCDDetail.Texts = "";
+                EmailDetail.Texts = "";
+                ActiveDetail.SelectedIndex = 0;
+                RoleDetail.SelectedIndex = 0;
+                AccountListDGV.Rows.Clear();
+                enabledTextbox(false);
+                loadData();
+            }
+
+            else
+                RJMessageBox.Show("Plesase select a User! ", "Something missing", MessageBoxButtons.OK, MessageBoxIcon.Question);
+
         }
     }
 }

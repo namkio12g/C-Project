@@ -144,7 +144,7 @@ namespace ClotheShop.Class.BLL
             return new Account((AccountDAO.Instance.GetById(id)).Rows[0]);
         }
 
-        internal bool SaveProduct(Account acc, CustomTextBox passwordCfTxt, CustomTextBox passwordTxt)
+        internal bool SaveAccount(Account acc, CustomTextBox passwordCfTxt, CustomTextBox passwordTxt)
         {
             if (passwordTxt.Texts == "")
             {
@@ -161,7 +161,7 @@ namespace ClotheShop.Class.BLL
                 }
                 else
                 {
-                    if (!checkUserName(acc.UserName1))
+                    if (checkUserName(acc.UserName1))
                     {
                         RJMessageBox.Show("Username is Existed ", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
@@ -190,6 +190,11 @@ namespace ClotheShop.Class.BLL
         internal void updatePassword(int iD1, string texts)
         {
             AccountDAO.Instance.updatePassword(iD1, texts);
+        }
+
+        internal void Delete(int id)
+        {
+            AccountDAO.Instance.Delete(id);
         }
     }
 }

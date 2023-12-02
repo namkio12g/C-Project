@@ -38,7 +38,7 @@ namespace ClotheShop.Class.BLL
             string email = emailDetail.Texts;
             string role = selectedValue.ToString();
 
-                        return UserDAO.Instance.Edit(new User(Convert.ToInt32(idString),name, address, phone, email, cccd, Convert.ToInt32(role), Convert.ToInt32(active)) { Active=1});
+                        return UserDAO.Instance.Edit(new User(Convert.ToInt32(idString),name, address, phone, email, cccd, Convert.ToInt32(role), Convert.ToInt32(active)));
                     
                 
             
@@ -75,7 +75,7 @@ namespace ClotheShop.Class.BLL
            
         }
 
-        internal User getProductById(int id)
+        internal User getUserById(int id)
         {
             User user = UserDAO.Instance.GetDataById(id);
             return user;

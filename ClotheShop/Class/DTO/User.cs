@@ -42,9 +42,9 @@ namespace ClotheShop.Class.DTO
             Address = address;
             Phone = phone;
             Email = email;
-            CCCD = CCCD;
-            roleID = roleID;
-            active = active;
+            CCCD1 = CCCD;
+            RoleID= roleID;
+            Active = active;
         }
         public User(DataRow row)
         {

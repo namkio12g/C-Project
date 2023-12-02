@@ -1,4 +1,6 @@
 ﻿using ClotheShop.Class;
+using ClotheShop.Class.BLL;
+using ClotheShop.Class.DTO;
 using ClotheShop.CustomControl;
 using ClotheShop.MyForm;
 using System;
@@ -24,6 +26,10 @@ namespace ClotheShop
             loadAuthority();
             UserAccessName.Text = SessionClass.Instance.Account.UserName1;
             loginForm = new flogin();
+            User u = UserBLL.Instance.getUserById(SessionClass.Instance.Account.ID_user1);
+            if (u.CCCD1 == "")
+                RJMessageBox.Show("Please Enter Your CCCD in user view form!");
+
 
         }
         void loadAuthority()
@@ -79,24 +85,36 @@ namespace ClotheShop
         private void customButton1_Click(object sender, EventArgs e)
         {
             customButton1.ClickHanlder(sender, e);
+            StatisticBt.OutHanlder(sender, e);
+            ActionButton.OutHanlder(sender, e);
+            CreateBillBt.OutHanlder(sender, e);
             loadForm(new ProductViewForm());
         }
 
         private void customButton2_Click(object sender, EventArgs e)
         {
-            customButton1.ClickHanlder(sender, e);
+            CreateBillBt.ClickHanlder(sender, e);
+            StatisticBt.OutHanlder(sender, e);
+            ActionButton.OutHanlder(sender, e);
+            customButton1.OutHanlder(sender, e);
             loadForm(new CreateBillForm());
         }
 
         private void ActionButton_Click(object sender, EventArgs e)
         {
-            customButton1.ClickHanlder(sender, e);
+            ActionButton.ClickHanlder(sender, e);
+            StatisticBt.OutHanlder(sender, e);
+            CreateBillBt.OutHanlder(sender, e);
+            customButton1.OutHanlder(sender, e);
             loadForm(new ActionViewForm());
         }
 
         private void StatisticBt_Click(object sender, EventArgs e)
         {
-            customButton1.ClickHanlder(sender, e);
+            StatisticBt.ClickHanlder(sender, e);
+            ActionButton.OutHanlder(sender, e);
+            CreateBillBt.OutHanlder(sender, e);
+            customButton1.OutHanlder(sender, e);
             loadForm(new StatisticViewForm());
         }
 
@@ -135,7 +153,7 @@ namespace ClotheShop
 
         private void UserAccessName_Click(object sender, EventArgs e)
         {
-            new UserInformationForm() {TopLevel=true }.ShowDialog();
+            new UserInformationForm() { TopLevel = true }.ShowDialog();
         }
     }
 }

@@ -26,7 +26,7 @@ namespace ClotheShop.Class.DAO
         }
         public DataTable getCategoryCombobox()
         {
-            string sql = "SELECT * FROM Category";
+            string sql = "SELECT CONCAT(id, ' - ', name) AS name,id,active FROM Category WHERE active = 1 ";
             return DataProvider.Instance.ExecuteQuery(sql);
         }
 
@@ -75,6 +75,12 @@ namespace ClotheShop.Class.DAO
             }
             return DataProvider.Instance.ExecuteQuery(sql, list.ToArray());
 
+        }
+
+        internal void Delete(int id)
+        {
+            string sql = "UPDATE category SET active = 0  WHERE id= @id ";
+            DataProvider.Instance.ExecuteScalar(sql, new Object[] { id });
         }
     }
 }

@@ -177,10 +177,9 @@ namespace ClotheShop.CustomControl
             else
             {
 
-                MessageBox.Show(UserAccountDetail.SelectedIndex.ToString());
                 if ((UserAccountDetail.SelectedIndex < 0))
                 {
-                    RJMessageBox.Show("Useraccount empty please select the brand text box ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    RJMessageBox.Show("Useraccount empty please select", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                     UserAccountDetail.Focus();
 
                 }
@@ -193,28 +192,23 @@ namespace ClotheShop.CustomControl
                     }
                     else
                     {
-                        bool flag = true;
+                        bool flag;
                         if (function == "add")
                         {
-                            flag=AccountBLL.Instance.SaveProduct(
+                            flag = !AccountBLL.Instance.SaveAccount(
                                 new Account(Convert.ToInt32(UserAccountDetail.SelectedValue), userNameDetail.Texts), PasswordCfTxt, PasswordTxt
                                 );
                         }
-                        else if (function == "edit")
+                        else
                         {
                             string a = idDetail.Text;
                             flag = !AccountBLL.Instance.EditProduct(
                                 new Account() { Active = Convert.ToInt32(ActiveDetail.SelectedItem.ToString()), UserName1 = userNameDetail.Texts, ID1 = Convert.ToInt32(idDetail.Text) }
                                 );
-                            
+
 
                         }
-                        if( flag )
-                        {
-                        RJMessageBox.Show("Action Failed!", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
-
-                        }
-                        else
+                        if (!flag)
                         {
                             RJMessageBox.Show("Successful!", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
@@ -398,12 +392,21 @@ namespace ClotheShop.CustomControl
         }
         private void ExportBt_Click(object sender, EventArgs e)
         {
-            string filePath = "C:\\Users\\84355\\source\\repos\\ClotheShop\\ClotheShop\\Xsls\\accounts.xlsx";
+            using (SaveFileDialog openFileDialog = new SaveFileDialog())
+            {
+                openFileDialog.DefaultExt = "xlsx";
 
-            DataTable dataTable = SessionClass.Instance.GetDataGridViewAsDataTable(dataGridView1);
-            ExportDataTableToExcel(dataTable, filePath);
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = openFileDialog.FileName;
 
-            Console.WriteLine("Excel file created successfully.");
+                    DataTable dataTable = SessionClass.Instance.GetDataGridViewAsDataTable(dataGridView1);
+                    ExportDataTableToExcel(dataTable, filePath);
+                    RJMessageBox.Show(" Export successful! ", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+            }
+
         }
 
         private void ShowPassBt_Click(object sender, EventArgs e)
@@ -420,6 +423,29 @@ namespace ClotheShop.CustomControl
                 RJMessageBox.Show("Plesase select a Account! ", "Something missing", MessageBoxButtons.OK, MessageBoxIcon.Question);
 
             }
+        }
+
+        private void DeleteBt_Click(object sender, EventArgs e)
+        {
+            if (idDetail.Text.ToString() != "")
+            {
+                AccountBLL.Instance.Delete(Convert.ToInt32(idDetail.Text.ToString()));
+                RJMessageBox.Show("Successful ", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                idDetail.Text = "";
+                createdTimeDetail.Value = DateTime.Today;
+                editedTimeDetail.Value = DateTime.Today;
+                userNameDetail.Texts = "";
+                UserAccountDetail.SelectedIndex = -1;
+                PasswordCfLb.Text = "";
+                PasswordCfTxt.Text = "";
+                enabledTextbox(false);
+
+                loadData();
+            }
+            else
+                RJMessageBox.Show("Plesase select a Account! ", "Something missing", MessageBoxButtons.OK, MessageBoxIcon.Question);
+
+
         }
     }
 }

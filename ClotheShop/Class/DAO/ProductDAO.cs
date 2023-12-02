@@ -29,20 +29,20 @@ namespace ClotheShop.Class.DAO
         }
         public DataTable GetDataTable()
         {
-            string sql = "SELECT p.ID,p.name,p.Price,c.name as Category ,p.brand as Brand,p.Quantity ,p.active" +
+            string sql = "SELECT p.ID,p.Name,p.Price,c.name as Category ,p.brand as Brand,p.Quantity ,p.Active" +
                 " FROM category as c,(select p.ID,p.name,p.Price,b.name as brand,p.category,p.Quantity,p.active " +
                 "from product as p,brand as b where b.id=p.brand) as p Where c.id= p.category AND p.active = 1";
             return DataProvider.Instance.ExecuteQuery(sql);
         }
         public DataTable GetDataTableIncludeInactive()
         {
-            string sql = "SELECT p.ID,p.name,p.Price,c.name as Category ,p.brand as Brand,p.Quantity ,p.active" +
+            string sql = "SELECT p.ID,p.name,p.Price,c.name as Category ,p.brand as Brand,p.Quantity ,p.Active" +
                 " FROM category as c,(select p.ID,p.name,p.Price,b.name as brand,p.category,p.Quantity,p.active " +
                 "from product as p,brand as b where b.id=p.brand) as p Where c.id= p.category ";
             return DataProvider.Instance.ExecuteQuery(sql);
         }
         public Product getProductbyId(int id)
-        { string sql = "SELECT p.id,p.name,p.price,c.name as category,b.name as brand,p.quantity,p.image,p.Description," +
+        { string sql = "SELECT p.id,p.name,p.price,CONCAT(c.id, ' - ', c.name) as category,CONCAT(b.id, ' - ', b.name) as brand,p.quantity,p.image,p.Description," +
                 "a.UserName as Created_by,p.Created_Date,r.UserName as Edited_by,p.Edited_Date,p.active " +
                 " FROM product AS p" +
                 " INNER JOIN  category AS c ON p.category = c.id" +
@@ -72,7 +72,7 @@ namespace ClotheShop.Class.DAO
         {
             string sql = "UPDATE product SET name =  @name ,price = @price ,brand = @brand ,category = @category ,quantity = @quantity ,image = @image , description = @description ,edited_date = @date ,edited_by = @by ,active = @active WHERE id = @id";
             return DataProvider.Instance.ExcuteNonQuery(sql, new Object[] {
-                product.Name,product.Price,product.BrandID,product.CategoryID,product.Quantity,product.Image,product.Description,DateTime.Now,null,product.Active,product.Id
+                product.Name,product.Price,product.BrandID,product.CategoryID,product.Quantity,product.Image,product.Description,DateTime.Now,SessionClass.Instance.Account.ID1,product.Active,product.Id
             }) ;
         }
 

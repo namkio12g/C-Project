@@ -60,5 +60,10 @@ namespace ClotheShop.Class.BLL
         {
             return CategoryDAO.Instance.update(name,active,id);
         }
+
+        internal void Delete(int v)
+        {
+            CategoryDAO.Instance.Delete(v);
+        }
     }
 }

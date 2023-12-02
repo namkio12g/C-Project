@@ -857,6 +857,7 @@
             DeleteButton.Textcolor = Color.White;
             DeleteButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             DeleteButton.UseVisualStyleBackColor = false;
+            DeleteButton.Click += DeleteButton_Click;
             // 
             // label1
             // 
@@ -1091,7 +1092,7 @@
             AccountBtChanged.Text = "Accounts";
             AccountBtChanged.Textcolor = Color.White;
             AccountBtChanged.UseVisualStyleBackColor = false;
-            AccountBtChanged.Click += AccountViewForm_Load;
+            AccountBtChanged.Click += AccountBtChanged_Click;
             // 
             // ActiveChB
             // 
@@ -1187,7 +1188,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "UserViewForm";
             Text = "ProductViewForm";
-            Load += AccountViewForm_Load;
+            Load += UserViewForm_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

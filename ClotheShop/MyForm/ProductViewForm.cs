@@ -104,6 +104,7 @@ namespace ClotheShop.CustomControl
             priceDetail.EnableText = flag;
             DescriptionDetail.Enabled = flag;
             AddBillBt.Visible = false;
+            ActiveChB.Enabled= flag;
 
             if (function == "edit")
             {
@@ -278,12 +279,12 @@ namespace ClotheShop.CustomControl
                                         bool flag = true;
                                         if (function == "add")
                                         {
-                                            flag= !ProductBLL.Instance.SaveProduct(
+                                            flag = !ProductBLL.Instance.SaveProduct(
                                                 new Product(
                                                     nameDetail.Texts, DescriptionDetail.Text, CategoryDetail.SelectedValue.ToString(), brandDetail.SelectedValue.ToString(),
                                                     anh, createdTimeDetail.Value, "", ""), nameDetail, priceDetail, QuantityDetail
                                                 );
-                                           
+
 
 
                                         }
@@ -295,20 +296,20 @@ namespace ClotheShop.CustomControl
                                                      nameDetail.Texts, DescriptionDetail.Text, CategoryDetail.SelectedValue.ToString(), brandDetail.SelectedValue.ToString(),
                                                     anh, createdTimeDetail.Value, "", ""), nameDetail, priceDetail, QuantityDetail, ActiveDetail.SelectedItem.ToString(), this
                                              );
-                                           
-                                          
+
+
 
                                         }
                                         if (!flag)
                                         {
                                             RJMessageBox.Show(" successful! ", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                                         
+
                                         }
                                         enabledTextbox(flag);
                                         saveBt.Visible = flag;
                                         loadData();
-                                    
+
                                     }
                                 }
                                 else
@@ -383,7 +384,7 @@ namespace ClotheShop.CustomControl
         {
             if (idDetail.Text != "")
             {
-                MessageBox.Show(ProductBLL.Instance.DeleteProduct(idDetail.Text).ToString());
+                ProductBLL.Instance.DeleteProduct(idDetail.Text).ToString();
                 imageProductDetail.Image = null;
                 nameDetail.Texts = "";
                 idDetail.Text = "";
@@ -396,12 +397,14 @@ namespace ClotheShop.CustomControl
                 QuantityDetail.Texts = "";
                 priceDetail.Texts = "";
                 DescriptionDetail.Text = "";
+                RJMessageBox.Show("Successful ", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 enabledTextbox(false);
                 loadData();
             }
             else
             {
-                MessageBox.Show("Pls select a product");
+                RJMessageBox.Show("Pls Select a product! ", "Something missing", MessageBoxButtons.OK, MessageBoxIcon.Question);
+
             }
         }
 
@@ -522,12 +525,22 @@ namespace ClotheShop.CustomControl
         }
         private void ExportBt_Click(object sender, EventArgs e)
         {
-            string filePath = "C:\\Users\\84355\\source\\repos\\ClotheShop\\ClotheShop\\Xsls\\Products.xlsx";
 
-            DataTable dataTable = SessionClass.Instance.GetDataGridViewAsDataTable(dataGridView1);
-            ExportDataTableToExcel(dataTable, filePath);
+            using (SaveFileDialog openFileDialog = new SaveFileDialog())
+            {
+                openFileDialog.DefaultExt = "xlsx";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = openFileDialog.FileName;
 
-            Console.WriteLine("Excel file created successfully.");
+                    DataTable dataTable = SessionClass.Instance.GetDataGridViewAsDataTable(dataGridView1);
+                    ExportDataTableToExcel(dataTable, filePath);
+                    RJMessageBox.Show(" Export successful! ", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+            }
+           
+
         }
 
 
@@ -544,6 +557,8 @@ namespace ClotheShop.CustomControl
 
                     // Pass the selected file path to the controller
                     ProductBLL.Instance.ImportExcelData(selectedFilePath);
+                    loadData();
+
                 }
             }
         }
