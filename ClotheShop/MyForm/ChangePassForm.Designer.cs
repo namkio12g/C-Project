@@ -80,7 +80,7 @@
             ConfirmPasswordTxt.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             ConfirmPasswordTxt.ForeColor = SystemColors.ActiveCaptionText;
             ConfirmPasswordTxt.IconImage = null;
-            ConfirmPasswordTxt.Location = new Point(61, 158);
+            ConfirmPasswordTxt.Location = new Point(61, 170);
             ConfirmPasswordTxt.Margin = new Padding(0);
             ConfirmPasswordTxt.Name = "ConfirmPasswordTxt";
             ConfirmPasswordTxt.OnlyNumber = false;
@@ -97,9 +97,10 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
             label2.Font = new Font("Century Schoolbook", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.ForeColor = Color.Black;
-            label2.Location = new Point(62, 139);
+            label2.ForeColor = Color.MidnightBlue;
+            label2.Location = new Point(62, 136);
             label2.Name = "label2";
             label2.Size = new Size(157, 19);
             label2.TabIndex = 120;
@@ -107,8 +108,8 @@
             // 
             // customButton1
             // 
-            customButton1.BackColor = Color.MediumSlateBlue;
-            customButton1.BackGColor = Color.MediumSlateBlue;
+            customButton1.BackColor = Color.Gold;
+            customButton1.BackGColor = Color.Gold;
             customButton1.BorderColor = Color.HotPink;
             customButton1.BorderRadius = 40;
             customButton1.BorderSize = 0;
@@ -133,6 +134,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(192, 192, 255);
             ClientSize = new Size(403, 365);
             Controls.Add(customButton1);
             Controls.Add(ConfirmPasswordTxt);

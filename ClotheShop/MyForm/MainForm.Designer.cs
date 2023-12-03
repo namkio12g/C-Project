@@ -53,7 +53,7 @@
             // 
             // panel2
             // 
-            panel2.BackColor = Color.DarkOrchid;
+            panel2.BackColor = Color.FromArgb(255, 192, 128);
             panel2.Controls.Add(customButton5);
             panel2.Controls.Add(StatisticBt);
             panel2.Controls.Add(ActionButton);
@@ -78,7 +78,7 @@
             customButton5.FlatAppearance.BorderSize = 0;
             customButton5.FlatAppearance.MouseOverBackColor = Color.MediumAquamarine;
             customButton5.FlatStyle = FlatStyle.Flat;
-            customButton5.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            customButton5.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point);
             customButton5.ForeColor = Color.Black;
             customButton5.HoverBool = false;
             customButton5.HoverColor = Color.Cyan;
@@ -108,7 +108,7 @@
             StatisticBt.FlatAppearance.BorderSize = 0;
             StatisticBt.FlatAppearance.MouseOverBackColor = Color.MediumAquamarine;
             StatisticBt.FlatStyle = FlatStyle.Flat;
-            StatisticBt.Font = new Font("Century Gothic", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            StatisticBt.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point);
             StatisticBt.ForeColor = Color.Black;
             StatisticBt.HoverBool = false;
             StatisticBt.HoverColor = Color.Cyan;
@@ -138,7 +138,7 @@
             ActionButton.FlatAppearance.BorderSize = 0;
             ActionButton.FlatAppearance.MouseOverBackColor = Color.MediumAquamarine;
             ActionButton.FlatStyle = FlatStyle.Flat;
-            ActionButton.Font = new Font("Century Gothic", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            ActionButton.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point);
             ActionButton.ForeColor = Color.Black;
             ActionButton.HoverBool = false;
             ActionButton.HoverColor = Color.Cyan;
@@ -168,7 +168,7 @@
             CreateBillBt.FlatAppearance.BorderSize = 0;
             CreateBillBt.FlatAppearance.MouseOverBackColor = Color.MediumAquamarine;
             CreateBillBt.FlatStyle = FlatStyle.Flat;
-            CreateBillBt.Font = new Font("Century Gothic", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            CreateBillBt.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point);
             CreateBillBt.ForeColor = Color.Black;
             CreateBillBt.HoverBool = false;
             CreateBillBt.HoverColor = Color.Cyan;
@@ -198,7 +198,7 @@
             customButton1.FlatAppearance.BorderSize = 0;
             customButton1.FlatAppearance.MouseOverBackColor = Color.MediumAquamarine;
             customButton1.FlatStyle = FlatStyle.Flat;
-            customButton1.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            customButton1.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point);
             customButton1.ForeColor = Color.Black;
             customButton1.HoverBool = false;
             customButton1.HoverColor = Color.Cyan;
@@ -246,10 +246,10 @@
             // UserAccessName
             // 
             UserAccessName.AutoSize = true;
-            UserAccessName.Font = new Font("Century Gothic", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            UserAccessName.Location = new Point(143, 56);
+            UserAccessName.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            UserAccessName.Location = new Point(143, 62);
             UserAccessName.Name = "UserAccessName";
-            UserAccessName.Size = new Size(95, 22);
+            UserAccessName.Size = new Size(98, 29);
             UserAccessName.TabIndex = 2;
             UserAccessName.Text = "Welcome";
             UserAccessName.Click += UserAccessName_Click;
@@ -267,10 +267,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Century Gothic", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(143, 24);
             label1.Name = "label1";
-            label1.Size = new Size(100, 22);
+            label1.Size = new Size(107, 29);
             label1.TabIndex = 0;
             label1.Text = "Welcome ";
             label1.Click += label1_Click;

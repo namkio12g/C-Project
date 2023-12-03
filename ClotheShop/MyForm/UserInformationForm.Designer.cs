@@ -330,6 +330,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(574, 460);
             Controls.Add(PasswordTxt);
             Controls.Add(label1);

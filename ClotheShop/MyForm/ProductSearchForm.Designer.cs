@@ -151,7 +151,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.DeepSkyBlue;
+            panel1.BackColor = Color.FromArgb(0, 192, 192);
             panel1.Controls.Add(label25);
             panel1.Controls.Add(customTextBox1);
             panel1.Controls.Add(label24);
@@ -930,7 +930,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.WhiteSmoke;
+            BackColor = Color.FromArgb(255, 255, 192);
             ClientSize = new Size(1126, 732);
             Controls.Add(CloseBt);
             Controls.Add(QuantityLabel);

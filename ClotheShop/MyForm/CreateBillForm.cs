@@ -47,10 +47,11 @@ namespace ClotheShop.MyForm
 
         }
 
-        private void Form_ButtonClicked(object? sender,CustomEventArgs c)
-        {  if(c.Value2.ToString()=="")
-            addProduct(int.Parse(c.ToString()), 0);
-           else
+        private void Form_ButtonClicked(object? sender, CustomEventArgs c)
+        {
+            if (c.Value2.ToString() == "")
+                addProduct(int.Parse(c.Value1.ToString()), 1);
+            else
                 addProduct(int.Parse(c.Value1.ToString()), Convert.ToInt32(c.Value2.ToString()));
         }
 
@@ -134,7 +135,7 @@ namespace ClotheShop.MyForm
             int fontsmall = 20;
             e.Graphics.DrawString("Shope clothe", new Font("Arial", 50, FontStyle.Regular), Brushes.Black, new Point(80, 10));
             e.Graphics.DrawString($"Customer's Name: {list[0]}", new Font("Arial", fontsmall, FontStyle.Regular), Brushes.Black, new Point(20, 100));
-            e.Graphics.DrawString($"Bill id: {billId}", new Font("Arial", fontsmall, FontStyle.Regular), Brushes.Black, new Point(e.PageBounds.Width -200, 100));
+            e.Graphics.DrawString($"Bill id: {billId}", new Font("Arial", fontsmall, FontStyle.Regular), Brushes.Black, new Point(e.PageBounds.Width - 200, 100));
             e.Graphics.DrawString($"Customer's Phone: {list[1]}", new Font("Arial", fontsmall, FontStyle.Regular), Brushes.Black, new Point(20, 130));
             e.Graphics.DrawString($"Customer's Address: {list[2]}", new Font("Arial", fontsmall, FontStyle.Regular), Brushes.Black, new Point(20, 160));
             Pen pen = new Pen(Color.Black, 2);

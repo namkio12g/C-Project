@@ -383,5 +383,10 @@ namespace ClotheShop.CustomControl
                 RJMessageBox.Show("Plesase select a Category! ", "Something missing", MessageBoxButtons.OK, MessageBoxIcon.Question);
 
         }
+
+        private void imageProductDetail_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

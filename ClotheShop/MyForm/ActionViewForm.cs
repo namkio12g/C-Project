@@ -14,9 +14,9 @@ namespace ClotheShop.MyForm
 {
     public partial class ActionViewForm : Form
     {
-        private List<Role> roles ; // Replace with your actual data retrieval logic
-        private List<Class.DTO.ActionObject> allActions ; // Replace with your actual data retrieval logic
-        private List<ActionDetail> roleActionDetails ; // Replace with your actual data retrieval logic
+        private List<Role> roles; // Replace with your actual data retrieval logic
+        private List<Class.DTO.ActionObject> allActions; // Replace with your actual data retrieval logic
+        private List<ActionDetail> roleActionDetails; // Replace with your actual data retrieval logic
         private class ActionRolePair
         {
             public ActionObject Action
@@ -52,9 +52,9 @@ namespace ClotheShop.MyForm
                 var groupBox = new GroupBox
                 {
                     Text = role.Name,
-                    Font= new Font("Arial", 10, FontStyle.Regular),
+                    Font = new Font("Arial", 10, FontStyle.Regular),
                     Location = new System.Drawing.Point(10, 10),
-                    Size = new System.Drawing.Size(panel1.Width-20, panel1.Height-20)
+                    Size = new System.Drawing.Size(panel1.Width - 20, panel1.Height - 20)
                 };
 
                 var actionsCheckBoxList = new CheckedListBox
@@ -102,7 +102,7 @@ namespace ClotheShop.MyForm
 
         private void UpdateData(ActionObject selectedAction, Role selectedRole, bool isChecked)
         {
-            ActionBLL.Instance.UpdateActionDetail(selectedAction.Id,selectedRole.Id,isChecked);
+            ActionBLL.Instance.UpdateActionDetail(selectedAction.Id, selectedRole.Id, isChecked);
         }
 
         private void ActionViewForm_Load(object sender, EventArgs e)
@@ -112,7 +112,7 @@ namespace ClotheShop.MyForm
 
         private void RoleCombobox_SelectedValueChanged(object sender, EventArgs e)
         {
-            if(RoleCombobox.SelectedIndex > -1 && RoleCombobox.SelectedValue.ToString() == "-1")
+            if (RoleCombobox.SelectedIndex > -1 && RoleCombobox.SelectedValue.ToString() == "-1")
             {
                 panel1.Controls.Clear();
                 RoleCombobox.Focus();
@@ -127,6 +127,11 @@ namespace ClotheShop.MyForm
                 InitializeUI();
 
             }
+        }
+
+        private void RoleCombobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

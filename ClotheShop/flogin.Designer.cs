@@ -49,11 +49,13 @@
             CloseBt = new Button();
             panel1 = new Panel();
             bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(components);
+            pictureBox3 = new PictureBox();
             loginPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             registerPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // UserTxt
@@ -402,7 +404,7 @@
             // 
             // CloseBt
             // 
-            CloseBt.BackColor = Color.FromArgb(255, 192, 192);
+            CloseBt.BackColor = Color.FromArgb(255, 128, 128);
             CloseBt.FlatStyle = FlatStyle.Flat;
             CloseBt.Location = new Point(1170, 12);
             CloseBt.Name = "CloseBt";
@@ -430,6 +432,17 @@
             bunifuElipse1.ElipseRadius = 20;
             bunifuElipse1.TargetControl = this;
             // 
+            // pictureBox3
+            // 
+            pictureBox3.BackColor = Color.Transparent;
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(268, 200);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(198, 166);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 8;
+            pictureBox3.TabStop = false;
+            // 
             // flogin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -437,6 +450,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1247, 780);
+            Controls.Add(pictureBox3);
             Controls.Add(panel1);
             Controls.Add(loginPanel);
             Controls.Add(registerPanel);
@@ -450,6 +464,7 @@
             registerPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
         }
 
@@ -474,5 +489,6 @@
         private Button CloseBt;
         private Panel panel1;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
+        private PictureBox pictureBox3;
     }
 }

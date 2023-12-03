@@ -30,10 +30,10 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateBillForm));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             FinishBt2 = new CustomControl.customButton();
             printDocument1 = new System.Drawing.Printing.PrintDocument();
             printPreviewDialog1 = new PrintPreviewDialog();
@@ -74,7 +74,7 @@
             FinishBt2.HoverBool = false;
             FinishBt2.HoverColor = Color.MediumAquamarine;
             FinishBt2.ImageIcon = null;
-            FinishBt2.Location = new Point(907, 393);
+            FinishBt2.Location = new Point(909, 416);
             FinishBt2.Name = "FinishBt2";
             FinishBt2.Size = new Size(160, 50);
             FinishBt2.TabIndex = 0;
@@ -107,43 +107,43 @@
             ProductListDGV.BorderStyle = BorderStyle.None;
             ProductListDGV.CellBorderStyle = DataGridViewCellBorderStyle.SunkenHorizontal;
             ProductListDGV.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.BottomLeft;
-            dataGridViewCellStyle1.BackColor = Color.Cornsilk;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = Color.FromArgb(0, 192, 192);
-            dataGridViewCellStyle1.Padding = new Padding(5, 0, 0, 5);
-            dataGridViewCellStyle1.SelectionBackColor = Color.Cornsilk;
-            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(0, 192, 192);
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            ProductListDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.BottomLeft;
+            dataGridViewCellStyle5.BackColor = Color.Cornsilk;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = Color.FromArgb(0, 192, 192);
+            dataGridViewCellStyle5.Padding = new Padding(5, 0, 0, 5);
+            dataGridViewCellStyle5.SelectionBackColor = Color.Cornsilk;
+            dataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(0, 192, 192);
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            ProductListDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             ProductListDGV.ColumnHeadersHeight = 50;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.Padding = new Padding(7, 0, 0, 0);
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            ProductListDGV.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Window;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle6.Padding = new Padding(7, 0, 0, 0);
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            ProductListDGV.DefaultCellStyle = dataGridViewCellStyle6;
             ProductListDGV.EnableHeadersVisualStyles = false;
             ProductListDGV.GridColor = SystemColors.ActiveCaption;
             ProductListDGV.Location = new Point(22, 315);
             ProductListDGV.Name = "ProductListDGV";
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            ProductListDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = SystemColors.Control;
+            dataGridViewCellStyle7.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            ProductListDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             ProductListDGV.RowHeadersVisible = false;
             ProductListDGV.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.BackColor = Color.LightSkyBlue;
-            dataGridViewCellStyle4.ForeColor = Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = Color.DarkOrchid;
-            ProductListDGV.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.BackColor = Color.LightSkyBlue;
+            dataGridViewCellStyle8.ForeColor = Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = Color.DarkOrchid;
+            ProductListDGV.RowsDefaultCellStyle = dataGridViewCellStyle8;
             ProductListDGV.RowTemplate.Height = 29;
             ProductListDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             ProductListDGV.Size = new Size(863, 371);
@@ -296,6 +296,7 @@
             // 
             // InfoPanel
             // 
+            InfoPanel.BackColor = Color.LightBlue;
             InfoPanel.Controls.Add(CustomerPhoneTxt);
             InfoPanel.Controls.Add(FinishBt);
             InfoPanel.Controls.Add(label4);
@@ -305,7 +306,7 @@
             InfoPanel.Controls.Add(CustomerNameTxt);
             InfoPanel.Location = new Point(12, 2);
             InfoPanel.Name = "InfoPanel";
-            InfoPanel.Size = new Size(873, 307);
+            InfoPanel.Size = new Size(662, 307);
             InfoPanel.TabIndex = 64;
             // 
             // CustomerPhoneTxt
@@ -471,7 +472,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.SlateBlue;
+            BackColor = Color.LightBlue;
             ClientSize = new Size(1108, 685);
             Controls.Add(InfoPanel);
             Controls.Add(CancelBt);

@@ -48,7 +48,12 @@ namespace ClotheShop.MyForm
                     ColumnChart.Titles.Clear();
                     Series series = new Series();
                     series.ChartType = SeriesChartType.Column;
-
+                    int totalSum = 0;
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        int total = Convert.ToInt32(row["total_sum"]);
+                        totalSum += total;
+                    }
                     // Bind the series to the DataTable
                     series.Points.DataBind(dt.DefaultView, "month", "total_Sum", "");
                     series.IsValueShownAsLabel = true;
@@ -70,7 +75,7 @@ namespace ClotheShop.MyForm
                     ColumnChart.Series.Add(series);
 
                     // Customize chart appearance if needed
-                    ColumnChart.Titles.Add($"Statistic Months");
+                    ColumnChart.Titles.Add($"Statistic Months | Total = {totalSum}");
                     ColumnChart.ChartAreas[0].AxisX.Interval = 1;
                     ColumnChart.ChartAreas[0].AxisX.Title = "Months";
                     ColumnChart.ChartAreas[0].AxisY.Title = "Total Sum";
@@ -83,7 +88,12 @@ namespace ClotheShop.MyForm
 
                     series = new Series();
                     series.ChartType = SeriesChartType.Column;
-
+                    totalSum = 0;
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        int total = Convert.ToInt32(row["total_sum"]);
+                        totalSum += total;
+                    }
                     // Bind the series to the DataTable
                     series.Points.DataBind(dt.DefaultView, "year", "total_Sum", "");
                     series.IsValueShownAsLabel = true;
@@ -104,7 +114,7 @@ namespace ClotheShop.MyForm
                     }
                     // Add the series to the chart
                     ColumnChart.Series.Add(series);
-                    ColumnChart.Titles.Add($"Statistic Years");
+                    ColumnChart.Titles.Add($"Statistic Years | Total = {totalSum}");
                     // Customize chart appearance if needed
                     ColumnChart.ChartAreas[0].AxisX.Interval = 1;
                     ColumnChart.ChartAreas[0].AxisX.Title = "Years";
@@ -120,7 +130,7 @@ namespace ClotheShop.MyForm
                     // Create a new series
                     series = new Series();
                     series.ChartType = SeriesChartType.Doughnut;
-                    int totalSum = 0;
+                    totalSum = 0;
                     foreach (DataRow row in dt.Rows)
                     {
                         int total = Convert.ToInt32(row["total_sum"]);
@@ -195,7 +205,7 @@ namespace ClotheShop.MyForm
                     PieChart.Palette = ChartColorPalette.Pastel;
 
                     // Set other chart properties as needed
-                    PieChart.Titles.Add($"Statistic Category : {((Category)AnotherCb.SelectedItem).Name}");
+                    PieChart.Titles.Add($"Statistic Category : {((Category)AnotherCb.SelectedItem).Name} | Total = {totalSum}");
                     PieChart.ChartAreas[0].Area3DStyle.Enable3D = true;
                     break;
                 default:

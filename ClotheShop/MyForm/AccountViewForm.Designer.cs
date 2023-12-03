@@ -55,7 +55,6 @@
             label10 = new Label();
             userNameDetail = new CustomTextBox();
             label8 = new Label();
-            uploadImageBt = new customButton();
             imageProductDetail = new PictureBox();
             customButton1 = new customButton();
             BrandChangedBt = new customButton();
@@ -147,7 +146,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.Indigo;
+            panel1.BackColor = Color.BlueViolet;
             panel1.Controls.Add(PasswordCfTxt);
             panel1.Controls.Add(PasswordCfLb);
             panel1.Controls.Add(PasswordTxt);
@@ -167,7 +166,6 @@
             panel1.Controls.Add(label10);
             panel1.Controls.Add(userNameDetail);
             panel1.Controls.Add(label8);
-            panel1.Controls.Add(uploadImageBt);
             panel1.Controls.Add(imageProductDetail);
             panel1.Dock = DockStyle.Right;
             panel1.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -433,39 +431,13 @@
             label8.TabIndex = 28;
             label8.Text = "Username";
             // 
-            // uploadImageBt
-            // 
-            uploadImageBt.BackColor = Color.MidnightBlue;
-            uploadImageBt.BackGColor = Color.MidnightBlue;
-            uploadImageBt.BorderColor = Color.HotPink;
-            uploadImageBt.BorderRadius = 40;
-            uploadImageBt.BorderSize = 0;
-            uploadImageBt.ClickedBool = false;
-            uploadImageBt.clikedColor = Color.MediumAquamarine;
-            uploadImageBt.FlatAppearance.BorderSize = 0;
-            uploadImageBt.FlatStyle = FlatStyle.Flat;
-            uploadImageBt.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            uploadImageBt.ForeColor = Color.White;
-            uploadImageBt.HoverBool = false;
-            uploadImageBt.HoverColor = Color.MediumAquamarine;
-            uploadImageBt.Image = (Image)resources.GetObject("uploadImageBt.Image");
-            uploadImageBt.ImageIcon = (Image)resources.GetObject("uploadImageBt.ImageIcon");
-            uploadImageBt.Location = new Point(92, 200);
-            uploadImageBt.Name = "uploadImageBt";
-            uploadImageBt.Size = new Size(89, 47);
-            uploadImageBt.TabIndex = 16;
-            uploadImageBt.Text = "From";
-            uploadImageBt.Textcolor = Color.White;
-            uploadImageBt.TextImageRelation = TextImageRelation.ImageBeforeText;
-            uploadImageBt.UseVisualStyleBackColor = false;
-            uploadImageBt.Visible = false;
-            // 
             // imageProductDetail
             // 
-            imageProductDetail.BackColor = Color.Gainsboro;
-            imageProductDetail.Location = new Point(33, 12);
+            imageProductDetail.BackColor = Color.Transparent;
+            imageProductDetail.Image = (Image)resources.GetObject("imageProductDetail.Image");
+            imageProductDetail.Location = new Point(49, 12);
             imageProductDetail.Name = "imageProductDetail";
-            imageProductDetail.Size = new Size(220, 180);
+            imageProductDetail.Size = new Size(187, 180);
             imageProductDetail.SizeMode = PictureBoxSizeMode.StretchImage;
             imageProductDetail.TabIndex = 0;
             imageProductDetail.TabStop = false;
@@ -1008,7 +980,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.LightGreen;
+            BackColor = Color.LightSeaGreen;
             ClientSize = new Size(1126, 732);
             Controls.Add(DeleteBt);
             Controls.Add(ExportBt);
@@ -1063,7 +1035,6 @@
         private customButton UserBtChanged;
         private CustomTextBox UserAccountSearchTextbox;
         private customButton searchButton;
-        private customButton uploadImageBt;
         private DataGridViewTextBoxColumn Column2;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse2;

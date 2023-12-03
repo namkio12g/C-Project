@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             panel1 = new Panel();
-            PieChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ColumnChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            PieChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             StatisticsCb = new ComboBox();
             panel2 = new Panel();
             StatisticShow = new CustomControl.customButton();
@@ -45,10 +45,9 @@
             dateTimePickerTop = new DateTimePicker();
             dateTimePickerBot = new DateTimePicker();
             label1 = new Label();
-            panel4 = new Panel();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)PieChart).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ColumnChart).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PieChart).BeginInit();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
@@ -63,38 +62,38 @@
             panel1.Size = new Size(666, 708);
             panel1.TabIndex = 0;
             // 
-            // PieChart
-            // 
-            chartArea2.Name = "ChartArea1";
-            PieChart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            PieChart.Legends.Add(legend2);
-            PieChart.Location = new Point(26, 21);
-            PieChart.Name = "PieChart";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            PieChart.Series.Add(series2);
-            PieChart.Size = new Size(621, 670);
-            PieChart.TabIndex = 2;
-            PieChart.Text = "chart2";
-            // 
             // ColumnChart
             // 
-            chartArea1.Name = "ChartArea1";
-            ColumnChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            ColumnChart.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            ColumnChart.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            ColumnChart.Legends.Add(legend3);
             ColumnChart.Location = new Point(3, 3);
             ColumnChart.Name = "ColumnChart";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            ColumnChart.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            ColumnChart.Series.Add(series3);
             ColumnChart.Size = new Size(658, 704);
             ColumnChart.TabIndex = 0;
             ColumnChart.Text = "chart1";
+            // 
+            // PieChart
+            // 
+            chartArea4.Name = "ChartArea1";
+            PieChart.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            PieChart.Legends.Add(legend4);
+            PieChart.Location = new Point(26, 21);
+            PieChart.Name = "PieChart";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            PieChart.Series.Add(series4);
+            PieChart.Size = new Size(621, 670);
+            PieChart.TabIndex = 2;
+            PieChart.Text = "chart2";
             // 
             // StatisticsCb
             // 
@@ -108,7 +107,7 @@
             // 
             // panel2
             // 
-            panel2.BackColor = Color.FromArgb(0, 192, 192);
+            panel2.BackColor = Color.FromArgb(255, 128, 128);
             panel2.Controls.Add(StatisticShow);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(AnotherCb);
@@ -118,14 +117,14 @@
             panel2.Controls.Add(StatisticsCb);
             panel2.Location = new Point(12, 12);
             panel2.Name = "panel2";
-            panel2.Size = new Size(404, 341);
+            panel2.Size = new Size(404, 324);
             panel2.TabIndex = 2;
             panel2.Paint += panel2_Paint;
             // 
             // StatisticShow
             // 
-            StatisticShow.BackColor = Color.MediumOrchid;
-            StatisticShow.BackGColor = Color.MediumOrchid;
+            StatisticShow.BackColor = Color.DarkBlue;
+            StatisticShow.BackGColor = Color.DarkBlue;
             StatisticShow.BorderColor = Color.HotPink;
             StatisticShow.BorderRadius = 40;
             StatisticShow.BorderSize = 0;
@@ -195,29 +194,20 @@
             label1.TabIndex = 54;
             label1.Text = "to";
             // 
-            // panel4
-            // 
-            panel4.BackColor = Color.FromArgb(0, 192, 192);
-            panel4.Location = new Point(12, 379);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(404, 341);
-            panel4.TabIndex = 3;
-            // 
             // StatisticViewForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.IndianRed;
+            BackColor = Color.Tomato;
             ClientSize = new Size(1126, 732);
-            Controls.Add(panel4);
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "StatisticViewForm";
             Text = "StatisticViewForm";
             panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)PieChart).EndInit();
             ((System.ComponentModel.ISupportInitialize)ColumnChart).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PieChart).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ResumeLayout(false);
@@ -229,7 +219,6 @@
         private ComboBox StatisticsCb;
         private Panel panel2;
         private System.Windows.Forms.DataVisualization.Charting.Chart ColumnChart;
-        private Panel panel4;
         private DateTimePicker dateTimePickerTop;
         private DateTimePicker dateTimePickerBot;
         private Label label1;

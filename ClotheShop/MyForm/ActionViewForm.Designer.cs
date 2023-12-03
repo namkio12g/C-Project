@@ -28,43 +28,56 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ActionViewForm));
             RoleCombobox = new ComboBox();
             panel1 = new Panel();
             label1 = new Label();
+            bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(components);
             SuspendLayout();
             // 
             // RoleCombobox
             // 
             RoleCombobox.FormattingEnabled = true;
-            RoleCombobox.Location = new Point(136, 258);
+            RoleCombobox.Location = new Point(37, 150);
             RoleCombobox.Name = "RoleCombobox";
             RoleCombobox.Size = new Size(215, 28);
             RoleCombobox.TabIndex = 0;
+            RoleCombobox.SelectedIndexChanged += RoleCombobox_SelectedIndexChanged;
             RoleCombobox.SelectedValueChanged += RoleCombobox_SelectedValueChanged;
             // 
             // panel1
             // 
-            panel1.BackColor = SystemColors.ActiveCaption;
-            panel1.Location = new Point(545, 28);
+            panel1.BackColor = Color.Aquamarine;
+            panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
+            panel1.Location = new Point(591, 28);
             panel1.Name = "panel1";
-            panel1.Size = new Size(387, 575);
+            panel1.Size = new Size(362, 575);
             panel1.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(25, 258);
+            label1.BackColor = Color.FromArgb(96, 252, 252);
+            label1.Font = new Font("Showcard Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.FromArgb(0, 0, 192);
+            label1.Location = new Point(37, 108);
             label1.Name = "label1";
-            label1.Size = new Size(105, 28);
+            label1.Size = new Size(141, 26);
             label1.TabIndex = 2;
             label1.Text = "Pick a Role";
+            // 
+            // bunifuElipse1
+            // 
+            bunifuElipse1.ElipseRadius = 15;
+            bunifuElipse1.TargetControl = panel1;
             // 
             // ActionViewForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Gainsboro;
+            BackColor = Color.FromArgb(37, 150, 190);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(965, 630);
             Controls.Add(label1);
             Controls.Add(panel1);
@@ -82,5 +95,6 @@
         private ComboBox RoleCombobox;
         private Panel panel1;
         private Label label1;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
     }
 }

@@ -105,7 +105,7 @@
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(192, 255, 255);
             dataGridViewCellStyle2.Padding = new Padding(7, 0, 0, 0);
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
@@ -139,7 +139,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.Chocolate;
+            panel1.BackColor = Color.Azure;
             panel1.Controls.Add(label1);
             panel1.Controls.Add(ProductListDGV);
             panel1.Controls.Add(label24);
@@ -161,7 +161,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Century Schoolbook", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = Color.White;
+            label1.ForeColor = Color.Black;
             label1.Location = new Point(22, 300);
             label1.Name = "label1";
             label1.Size = new Size(99, 19);
@@ -175,7 +175,7 @@
             ProductListDGV.AllowUserToResizeColumns = false;
             ProductListDGV.AllowUserToResizeRows = false;
             ProductListDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            ProductListDGV.BackgroundColor = Color.White;
+            ProductListDGV.BackgroundColor = Color.Cyan;
             ProductListDGV.BorderStyle = BorderStyle.None;
             ProductListDGV.CellBorderStyle = DataGridViewCellBorderStyle.SunkenHorizontal;
             ProductListDGV.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
@@ -192,7 +192,7 @@
             dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = SystemColors.Window;
             dataGridViewCellStyle6.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle6.ForeColor = Color.FromArgb(192, 255, 255);
             dataGridViewCellStyle6.Padding = new Padding(7, 0, 0, 0);
             dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
@@ -226,7 +226,7 @@
             // 
             label24.AutoSize = true;
             label24.Font = new Font("Century Schoolbook", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label24.ForeColor = Color.White;
+            label24.ForeColor = Color.Black;
             label24.Location = new Point(220, 216);
             label24.Name = "label24";
             label24.Size = new Size(57, 19);
@@ -247,7 +247,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.ForeColor = SystemColors.ButtonHighlight;
+            label4.ForeColor = SystemColors.ActiveCaptionText;
             label4.Location = new Point(106, 182);
             label4.Name = "label4";
             label4.Size = new Size(26, 20);
@@ -258,7 +258,7 @@
             // 
             idDetail.AutoSize = true;
             idDetail.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            idDetail.ForeColor = SystemColors.ButtonHighlight;
+            idDetail.ForeColor = SystemColors.ActiveCaptionText;
             idDetail.Location = new Point(138, 182);
             idDetail.Name = "idDetail";
             idDetail.Size = new Size(0, 20);
@@ -317,7 +317,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Century Schoolbook", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.ForeColor = Color.White;
+            label8.ForeColor = Color.Black;
             label8.Location = new Point(8, 216);
             label8.Name = "label8";
             label8.Size = new Size(54, 19);
@@ -328,12 +328,13 @@
             // 
             imageProductDetail.BackColor = Color.Transparent;
             imageProductDetail.Image = (Image)resources.GetObject("imageProductDetail.Image");
-            imageProductDetail.Location = new Point(88, 75);
+            imageProductDetail.Location = new Point(65, 12);
             imageProductDetail.Name = "imageProductDetail";
-            imageProductDetail.Size = new Size(115, 93);
+            imageProductDetail.Size = new Size(164, 156);
             imageProductDetail.SizeMode = PictureBoxSizeMode.StretchImage;
             imageProductDetail.TabIndex = 0;
             imageProductDetail.TabStop = false;
+            imageProductDetail.Click += imageProductDetail_Click;
             // 
             // ProductFormBtChanged
             // 
@@ -540,7 +541,7 @@
             // 
             label16.AutoSize = true;
             label16.Font = new Font("Century Schoolbook", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label16.ForeColor = Color.Blue;
+            label16.ForeColor = Color.FromArgb(192, 255, 255);
             label16.Location = new Point(22, 23);
             label16.Name = "label16";
             label16.Size = new Size(29, 21);
@@ -701,7 +702,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Century Schoolbook", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.ForeColor = Color.Blue;
+            label5.ForeColor = Color.FromArgb(192, 255, 255);
             label5.Location = new Point(248, 23);
             label5.Name = "label5";
             label5.Size = new Size(60, 21);
@@ -802,7 +803,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.PaleTurquoise;
+            BackColor = Color.LightSlateGray;
             ClientSize = new Size(1126, 732);
             Controls.Add(ExportBt);
             Controls.Add(ActiveChB);
@@ -830,6 +831,7 @@
             Controls.Add(ProductFormBtChanged);
             Controls.Add(panel1);
             Controls.Add(dataGridView1);
+            ForeColor = Color.FromArgb(192, 255, 255);
             FormBorderStyle = FormBorderStyle.None;
             Name = "CategoryViewForm";
             Text = "ProductViewForm";

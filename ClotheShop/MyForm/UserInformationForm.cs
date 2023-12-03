@@ -45,7 +45,7 @@ namespace ClotheShop.MyForm
             }
             else
             {
-                if (PhoneDetail.Texts == "" ||PhoneDetail.Texts[0]!='0'||PhoneDetail.Texts.Length!=10)
+                if (PhoneDetail.Texts == "" || PhoneDetail.Texts[0] != '0' || PhoneDetail.Texts.Length != 10)
                 {
                     RJMessageBox.Show("Phone text is invalid ! ", "Something missing", MessageBoxButtons.OK, MessageBoxIcon.Question);
 
@@ -63,7 +63,7 @@ namespace ClotheShop.MyForm
                     {
 
 
-                        if (EmailDetail.Texts == "" ||!regexEmail.IsMatch(EmailDetail.Texts))
+                        if (EmailDetail.Texts == "" || !regexEmail.IsMatch(EmailDetail.Texts))
                         {
                             RJMessageBox.Show("Email text box is invalid! ", "Something missing", MessageBoxButtons.OK, MessageBoxIcon.Question);
 

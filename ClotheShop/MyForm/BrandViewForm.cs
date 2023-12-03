@@ -377,11 +377,11 @@ namespace ClotheShop.CustomControl
 
                 loadData();
             }
-        
+
             else
                 RJMessageBox.Show("Plesase select a Brand! ", "Something missing", MessageBoxButtons.OK, MessageBoxIcon.Question);
 
 
         }
-}
+    }
 }

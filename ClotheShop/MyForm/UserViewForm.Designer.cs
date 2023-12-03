@@ -504,9 +504,9 @@
             // 
             imageProductDetail.BackColor = Color.Transparent;
             imageProductDetail.Image = (Image)resources.GetObject("imageProductDetail.Image");
-            imageProductDetail.Location = new Point(88, 76);
+            imageProductDetail.Location = new Point(72, 23);
             imageProductDetail.Name = "imageProductDetail";
-            imageProductDetail.Size = new Size(115, 93);
+            imageProductDetail.Size = new Size(153, 146);
             imageProductDetail.SizeMode = PictureBoxSizeMode.StretchImage;
             imageProductDetail.TabIndex = 0;
             imageProductDetail.TabStop = false;

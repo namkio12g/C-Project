@@ -104,7 +104,7 @@ namespace ClotheShop.CustomControl
             priceDetail.EnableText = flag;
             DescriptionDetail.Enabled = flag;
             AddBillBt.Visible = false;
-            ActiveChB.Enabled= flag;
+            ActiveChB.Enabled = flag;
 
             if (function == "edit")
             {
@@ -539,7 +539,7 @@ namespace ClotheShop.CustomControl
 
                 }
             }
-           
+
 
         }
 
