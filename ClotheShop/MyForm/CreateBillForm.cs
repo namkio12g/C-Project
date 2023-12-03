@@ -79,10 +79,20 @@ namespace ClotheShop.MyForm
                         flag = false;
                         ProductListDGV.ClearSelection();
                         ProductListDGV.Rows[i].Selected = true;
-                        RJMessageBox.Show($"Quantity of some product too hight row:{i + 1}! ", "Something wrong", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        RJMessageBox.Show($"Quantity of some product too hight, row : {i + 1}! ", "Something wrong", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                         break;
                     }
+                    if (Convert.ToInt32(dataTable.Rows[i][3].ToString()) == 0)
+                    {
+                        flag = false;
+                        ProductListDGV.ClearSelection();
+                        ProductListDGV.Rows[i].Selected = true;
+                        RJMessageBox.Show($"Quantity of some product equal 0 ,row : {i + 1}! ", "Something wrong", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                        break;
+                    }
+                    
                 }
                 if (flag)
                 {
@@ -192,10 +202,10 @@ namespace ClotheShop.MyForm
         }
         private void addProduct(int id, int number)
         {
-            Product product = ProductBLL.Instance.getProductById(id);
+            Product product = ProductBLL.Instance.getProductActiveById(id);
             if (number < 0)
             {
-                number = 1;
+                number = 0;
             }
             if (product == null)
             {
@@ -229,7 +239,7 @@ namespace ClotheShop.MyForm
                     int new_num = (int.Parse(dataTable.Rows[rowIndex][3].ToString()) + number);
                     dataTable.Rows[rowIndex][3] = new_num.ToString();
                     dataTable.Rows[rowIndex][4] = (int.Parse(dataTable.Rows[rowIndex][2].ToString()) * new_num).ToString();
-
+                    
 
                 }
                 else

@@ -208,6 +208,7 @@ namespace ClotheShop.CustomControl
         {
             if (idDetail.Text != "")
             {
+                BillBLL.Instance.DeleteBill(idDetail.Text);
                 CustomerNameDetail.Texts = "";
                 idDetail.Text = "";
                 createdTimeDetail.Value = DateTime.Today;

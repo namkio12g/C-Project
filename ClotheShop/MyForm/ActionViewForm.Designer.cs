@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ActionViewForm));
             RoleCombobox = new ComboBox();
             panel1 = new Panel();
             label1 = new Label();
@@ -49,7 +48,6 @@
             // panel1
             // 
             panel1.BackColor = Color.Aquamarine;
-            panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
             panel1.Location = new Point(591, 28);
             panel1.Name = "panel1";
             panel1.Size = new Size(362, 575);
@@ -58,7 +56,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.BackColor = Color.FromArgb(96, 252, 252);
+            label1.BackColor = Color.Transparent;
             label1.Font = new Font("Showcard Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(0, 0, 192);
             label1.Location = new Point(37, 108);
@@ -77,7 +75,6 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(37, 150, 190);
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(965, 630);
             Controls.Add(label1);
             Controls.Add(panel1);

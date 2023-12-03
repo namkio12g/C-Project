@@ -59,6 +59,25 @@ namespace ClotheShop.Class.DAO
             Product pd = new Product(dr);
             return pd;
         }
+        public Product getProductActivebyId(int id)
+        {
+            string sql = "SELECT p.id,p.name,p.price,CONCAT(c.id, ' - ', c.name) as category,CONCAT(b.id, ' - ', b.name) as brand,p.quantity,p.image,p.Description," +
+                "a.UserName as Created_by,p.Created_Date,r.UserName as Edited_by,p.Edited_Date,p.active " +
+                " FROM product AS p" +
+                " INNER JOIN  category AS c ON p.category = c.id" +
+                " INNER JOIN brand AS b ON p.brand = b.id" +
+                " LEFT JOIN account as a on a.id = p.created_by" +
+                " LEFT JOIN account as r on r.id = p.edited_by" +
+                " WHERE p.id = @ID AND p.active =1 ";
+            DataTable dt = DataProvider.Instance.ExecuteQuery(sql, new object[] { id });
+            if (dt.Rows.Count == 0)
+            {
+                return null;
+            }
+            DataRow dr = dt.Rows[0];
+            Product pd = new Product(dr);
+            return pd;
+        }
         public bool Insert(Product product){
             string sql = "INSERT INTO product (name,price,brand,category,quantity,image,description,created_by,created_date,edited_by,edited_date ,active)" +
                 " VALUES ( @name , @price , @brand , @category , @quantity , @image , @description , @created_by , @created_date , @edited_by , @edited_date ,1 )";

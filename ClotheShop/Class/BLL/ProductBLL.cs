@@ -34,6 +34,11 @@ namespace ClotheShop.Class.BLL
             Product product =ProductDAO.Instance.getProductbyId(id) ;
             return product;
         }
+        public Product getProductActiveById(int id)
+        {
+            Product product = ProductDAO.Instance.getProductActivebyId(id);
+            return product;
+        }
         public bool SaveProduct(Product product,CustomTextBox name,CustomTextBox price,CustomTextBox quantity)
         {
             Regex regexname = new Regex("^[0-9]+$", RegexOptions.Compiled);
