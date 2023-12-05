@@ -51,7 +51,7 @@ namespace ClotheShop.CustomControl
             {
                 RoleBtChanged.Visible = false;
             }
-            if (SessionClass.Instance.List_action.IndexOf(13) == -1 && SessionClass.Instance.UserRole1 != 0)
+            if (SessionClass.Instance.List_action.IndexOf(10) == -1 && SessionClass.Instance.UserRole1 != 0)
             {
                 CategoryBtChanged.Visible = false;
             }
@@ -62,6 +62,7 @@ namespace ClotheShop.CustomControl
             if (SessionClass.Instance.List_action.IndexOf(3) == -1 && SessionClass.Instance.UserRole1 != 0)
             {
                 EditButton.Visible = false;
+                DeleteButton.Visible=false;
             }
         }
         private void ProductViewForm_Load(object sender, EventArgs e)
@@ -104,7 +105,7 @@ namespace ClotheShop.CustomControl
             priceDetail.EnableText = flag;
             DescriptionDetail.Enabled = flag;
             AddBillBt.Visible = false;
-            ActiveChB.Enabled = flag;
+            ActiveDetail.Enabled = flag;
 
             if (function == "edit")
             {

@@ -37,7 +37,7 @@ namespace ClotheShop.Class.DAO
 
         internal User GetDataById( int id)
         {
-            string sql = "SELECT u.ID,u.Name,u.Phone,u.Address,u.Email,u.CCCD,r.name AS Role,u.active FROM user AS u INNER JOIN  role AS r ON r.id = u.role WHERE u.id = @id AND u.id <> 0";
+            string sql = "SELECT u.ID,u.Name,u.Phone,u.Address,u.Email,u.CCCD,r.name AS Role,u.active FROM user AS u INNER JOIN  role AS r ON r.id = u.role WHERE u.id = @id ";
             return new User((DataProvider.Instance.ExecuteQuery(sql, new object[] { id }).Rows[0]));
         }
 

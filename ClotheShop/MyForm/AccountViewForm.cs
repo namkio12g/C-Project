@@ -58,6 +58,7 @@ namespace ClotheShop.CustomControl
             if (SessionClass.Instance.List_action.IndexOf(18) == -1 && SessionClass.Instance.UserRole1 != 0)
             {
                 EditButton.Visible = false;
+                DeleteBt.Visible = false;
             }
         }
         private void AccountViewForm_Load(object sender, EventArgs e)

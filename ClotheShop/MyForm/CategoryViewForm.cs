@@ -56,6 +56,7 @@ namespace ClotheShop.CustomControl
             if (SessionClass.Instance.List_action.IndexOf(12) == -1 && SessionClass.Instance.UserRole1 != 0)
             {
                 EditButton.Visible = false;
+                DeleteButton.Visible = false;
             }
         }
         private void CategoryViewForm_Load(object sender, EventArgs e)

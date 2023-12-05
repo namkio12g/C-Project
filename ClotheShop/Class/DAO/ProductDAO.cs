@@ -68,7 +68,7 @@ namespace ClotheShop.Class.DAO
                 " INNER JOIN brand AS b ON p.brand = b.id" +
                 " LEFT JOIN account as a on a.id = p.created_by" +
                 " LEFT JOIN account as r on r.id = p.edited_by" +
-                " WHERE p.id = @ID AND p.active =1 ";
+                " WHERE p.id = @ID AND p.gactive =1 ";
             DataTable dt = DataProvider.Instance.ExecuteQuery(sql, new object[] { id });
             if (dt.Rows.Count == 0)
             {

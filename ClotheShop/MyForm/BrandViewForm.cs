@@ -204,7 +204,7 @@ namespace ClotheShop.CustomControl
             //imageProductDetail.Image = null;
             nameDetail.Texts = "";
             idDetail.Text = "";
-            this.ProductListDGV.Rows.Clear();
+            this.ProductListDGV.DataSource = "";
             enabledTextbox(true);
             saveBt.Visible = true;
             function = "add";

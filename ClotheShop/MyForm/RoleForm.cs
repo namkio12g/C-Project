@@ -55,6 +55,8 @@ namespace ClotheShop.CustomControl
             if (SessionClass.Instance.List_action.IndexOf(15) == -1 && SessionClass.Instance.UserRole1 != 0)
             {
                 EditButton.Visible = false;
+                DeleteButton.Visible = false;
+
             }
         }
         private void RoleForm_Load(object sender, EventArgs e)

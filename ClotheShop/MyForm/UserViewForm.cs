@@ -56,6 +56,8 @@ namespace ClotheShop.CustomControl
             if (SessionClass.Instance.List_action.IndexOf(6) == -1 && SessionClass.Instance.UserRole1 != 0)
             {
                 EditButton.Visible = false;
+                DeleteButton.Visible = false;
+
             }
         }
         private void UserViewForm_Load(object sender, EventArgs e)
@@ -306,6 +308,7 @@ namespace ClotheShop.CustomControl
             EmailDetail.Texts = "";
             RoleDetail.Text = "";
             AddressDetail.Texts = "";
+            AccountListDGV.DataSource = "";
             enabledTextbox(true);
             saveBt.Visible = true;
             function = "add";
