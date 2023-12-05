@@ -101,7 +101,7 @@ namespace ClotheShop.Class.BLL
                             }
                             else
                             {
-                                Regex regexEmail = new Regex("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$", RegexOptions.Compiled);
+                                Regex regexEmail = new Regex(@"^[a-zA-Z0-9._%+-]+@gmail\.com$", RegexOptions.Compiled);
                                 if (user.Phone1 == "" || !regexEmail.IsMatch(user.Email1))
                                 {
                                     RJMessageBox.Show("Email is invalid","", MessageBoxButtons.OK, MessageBoxIcon.Warning);

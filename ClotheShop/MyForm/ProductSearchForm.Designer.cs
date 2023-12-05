@@ -957,7 +957,7 @@
             Controls.Add(nameSearchTextbox);
             Controls.Add(panel1);
             Controls.Add(dataGridView1);
-            FormBorderStyle = FormBorderStyle.Fixed3D;
+            FormBorderStyle = FormBorderStyle.None;
             Name = "ProductSearchForm";
             Text = "ProductViewForm";
             Load += ProductViewForm_Load;

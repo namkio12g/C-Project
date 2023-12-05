@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.ComponentModel.Design.ObjectSelectorEditor;
 using System.Windows.Forms;
+using DocumentFormat.OpenXml.Bibliography;
 
 namespace ClotheShop.Class.DAO
 {
@@ -26,7 +27,9 @@ namespace ClotheShop.Class.DAO
         }
 
         internal DataTable GetStatisticByBrand(int id,DateTime timeTop, DateTime timeBottom)
-        {   List<object> list = new List<object>(); 
+        {   List<object> list = new List<object>();
+            if (timeBottom > timeTop)
+                MessageBox.Show("Vui long chon thoi gian hop li", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             string sql = "SELECT p.name,p.price * bd.quantity AS total_sum " +
                             "FROM bill_detail as bd INNER JOIN ( " +
                         " SELECT br.name,p.id,br.id AS brand,p.price FROM product as p INNER JOIN brand AS br ON p.brand = br.id " +
@@ -66,8 +69,10 @@ namespace ClotheShop.Class.DAO
         
         }
 
-        internal DataTable GetStatisticByCategory(int id, object timeTop, object timeBottom)
+        internal DataTable GetStatisticByCategory(int id, DateTime timeTop, DateTime timeBottom)
         {
+            if (timeBottom > timeTop)
+                MessageBox.Show("Vui long chon thoi gian hop li", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             List<object> list = new List<object>();
             string sql = "";
             if (id > -1)
@@ -87,7 +92,8 @@ namespace ClotheShop.Class.DAO
                 return DataProvider.Instance.ExecuteQuery(sql, list.ToArray());
             }
             else
-            {
+            {   
+
                 sql = "SELECT p.name,p.price * bd.quantity AS total_sum " +
                             "FROM bill_detail as bd INNER JOIN ( " +
                         " SELECT c.name,p.id,c.id AS cate,p.price FROM product as p INNER JOIN category AS c ON p.brand = c.id " +
@@ -103,7 +109,27 @@ namespace ClotheShop.Class.DAO
 
         internal  DataTable GetStatisticByMonth(DateTime timeTop, DateTime timeBottom)
         {
-          
+            /// Create a dictionary to store month and corresponding days
+        Dictionary<int, int> monthDaysMap = new Dictionary<int, int>();
+
+            // Populate the dictionary with months and days
+            monthDaysMap.Add(0, 31); // January
+            monthDaysMap.Add(1, 28); // February (Leap year handling is not considered in this example)
+            monthDaysMap.Add(2, 31); // March
+            monthDaysMap.Add(3, 30); // April
+            monthDaysMap.Add(4, 31); // May
+            monthDaysMap.Add(5, 30); // June
+            monthDaysMap.Add(6, 31); // July
+            monthDaysMap.Add(7, 31); // August
+            monthDaysMap.Add(8, 30); // September
+            monthDaysMap.Add(9, 31); // October
+            monthDaysMap.Add(10, 30); // November
+            monthDaysMap.Add(11, 31); // December
+            DateTime bot = new DateTime(timeBottom.Year, timeBottom.Month, 1);
+            DateTime top = new DateTime(timeTop.Year, timeTop.Month, monthDaysMap[timeTop.Month - 1]);
+
+            if (bot > top)
+                MessageBox.Show("Vui long chon thoi gian hop li","error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             string sql = "SELECT MONTH(date_created) AS month, SUM(total) AS total_sum " +
                 "FROM bill WHERE date_created >= @timebot AND date_created <= @timetop " +
                 "GROUP BY MONTH(date_created) ORDER BY month ASC;";
@@ -114,6 +140,10 @@ namespace ClotheShop.Class.DAO
         {
             DateTime yearTop = new  DateTime(timeTop.Year,12,31);
             DateTime yearBot = new DateTime(timeBottom.Year,1,1);
+            if(timeTop.Year < timeBottom.Year)
+            {
+                MessageBox.Show("Vui long chon time hop li","error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
 
             string sql = "SELECT Year(date_created) AS year, SUM(total) AS total_sum " +
                   "FROM bill WHERE date_created >= @timebot AND date_created <= @timetop " +
