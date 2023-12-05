@@ -91,7 +91,7 @@ CREATE TABLE `Category` (
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`Name` VARCHAR(255) NOT NULL,
 	`active` INT NOT NULL DEFAULT '1',
-	`Description` VARCHAR(255) NOT NULL,
+	`Description` VARCHAR(255),
 	PRIMARY KEY (`id`)
 );
 

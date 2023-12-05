@@ -155,5 +155,10 @@ namespace ClotheShop
         {
             new UserInformationForm() { TopLevel = true }.ShowDialog();
         }
+
+        private void MinimizeBt_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }

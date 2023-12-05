@@ -45,6 +45,7 @@
             mainPanel = new Panel();
             bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(components);
             bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(components);
+            MinimizeBt = new Button();
             panel2.SuspendLayout();
             topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -218,6 +219,7 @@
             // topPanel
             // 
             topPanel.BackColor = Color.PaleTurquoise;
+            topPanel.Controls.Add(MinimizeBt);
             topPanel.Controls.Add(CloseBt);
             topPanel.Controls.Add(UserAccessName);
             topPanel.Controls.Add(pictureBox1);
@@ -304,6 +306,18 @@
             bunifuElipse2.ElipseRadius = 10;
             bunifuElipse2.TargetControl = this;
             // 
+            // MinimizeBt
+            // 
+            MinimizeBt.BackColor = Color.FromArgb(128, 128, 255);
+            MinimizeBt.FlatStyle = FlatStyle.Flat;
+            MinimizeBt.Location = new Point(1258, 24);
+            MinimizeBt.Name = "MinimizeBt";
+            MinimizeBt.Size = new Size(36, 29);
+            MinimizeBt.TabIndex = 9;
+            MinimizeBt.Text = "-";
+            MinimizeBt.UseVisualStyleBackColor = false;
+            MinimizeBt.Click += MinimizeBt_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -341,5 +355,6 @@
         private Label label1;
         private Label UserAccessName;
         private Button CloseBt;
+        private Button MinimizeBt;
     }
 }

@@ -35,7 +35,10 @@ namespace ClotheShop.Class.DTO
     
             this.category = data["category"].ToString();
             this.brand = data["brand"].ToString();
-            this.image = (byte[])data["Image"];
+            if (data["Image"]!= System.DBNull.Value)
+                this.image = (byte[])data["Image"];
+            else
+                this.image = new byte[0];
             this.created_date = (DateTime)data["Created_Date"];
             this.edited_date = (DateTime)data["Edited_Date"];
             this.created_by = data["Created_by"].ToString(); 

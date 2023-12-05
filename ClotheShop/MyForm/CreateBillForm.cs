@@ -96,6 +96,7 @@ namespace ClotheShop.MyForm
                 }
                 if (flag)
                 {
+                    printPreviewDialog1 = new PrintPreviewDialog();
                     printPreviewDialog1.Document = printDocument1;
                     printPreviewDialog1.Show();
                     int total = 0;

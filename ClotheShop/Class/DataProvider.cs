@@ -21,7 +21,7 @@ namespace ClotheShop.Class
         static string server = "127.0.0.1";
         static string Uid = "root";
         static string password = "namkio12g";
-        static string nameDatabase = "clothe_database";
+        static string nameDatabase = "clotheshop_database";
         public static MySqlConnection Conn
         {
             get {

@@ -103,18 +103,22 @@ namespace ClotheShop.Class.DAO
 
         internal  DataTable GetStatisticByMonth(DateTime timeTop, DateTime timeBottom)
         {
+          
             string sql = "SELECT MONTH(date_created) AS month, SUM(total) AS total_sum " +
-                "FROM bill WHERE date_created >= @timebot AND date_created < @timetop " +
+                "FROM bill WHERE date_created >= @timebot AND date_created <= @timetop " +
                 "GROUP BY MONTH(date_created) ORDER BY month ASC;";
             return DataProvider.Instance.ExecuteQuery(sql,new Object[] {timeBottom, timeTop });
         }
 
         internal DataTable GetStatisticByYear(DateTime timeTop, DateTime timeBottom)
         {
+            DateTime yearTop = new  DateTime(timeTop.Year,12,31);
+            DateTime yearBot = new DateTime(timeBottom.Year,1,1);
+
             string sql = "SELECT Year(date_created) AS year, SUM(total) AS total_sum " +
-                  "FROM bill WHERE date_created >= @timebot AND date_created < @timetop " +
+                  "FROM bill WHERE date_created >= @timebot AND date_created <= @timetop " +
                   "GROUP BY YEAR(date_created) ORDER BY year ASC;";
-            return DataProvider.Instance.ExecuteQuery(sql, new Object[] { timeBottom, timeTop });
+            return DataProvider.Instance.ExecuteQuery(sql, new Object[] { yearBot, yearTop });
         }
     }
 }

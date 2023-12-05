@@ -32,11 +32,34 @@ namespace ClotheShop.MyForm
         public StatisticViewForm()
         {
             InitializeComponent();
+            DateTimeFormater(false);
         }
+        private void DateTimeFormater(bool flag)
+        {
+            if (flag)
+            {
+                dateTimePickerBot.Format = DateTimePickerFormat.Custom;
+                dateTimePickerBot.CustomFormat = "yyyy";
+                dateTimePickerBot.ShowUpDown = true;
+                dateTimePickerTop.Format = DateTimePickerFormat.Custom;
+                dateTimePickerTop.CustomFormat = "yyyy";
+                dateTimePickerTop.ShowUpDown = true;
 
+            }
+            else
+            {
+                dateTimePickerBot.Format = DateTimePickerFormat.Custom;
+                dateTimePickerBot.CustomFormat = "MM/yyyy";
+                dateTimePickerBot.ShowUpDown = false;
+                dateTimePickerTop.Format = DateTimePickerFormat.Custom;
+                dateTimePickerTop.CustomFormat = "MM/yyyy";
+                dateTimePickerTop.ShowUpDown = false;
+            }
+        }
         private void StatisticShow_Click(object sender, EventArgs e)
         {
             int statistic = StatisticsCb.SelectedIndex;
+      
 
             switch (statistic)
             {
@@ -217,6 +240,13 @@ namespace ClotheShop.MyForm
 
         private void StatisticsCb_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (StatisticsCb.SelectedIndex == 1)
+            {
+                DateTimeFormater(true);
+
+            }
+            else
+                DateTimeFormater(false);
             switch (StatisticsCb.SelectedIndex)
             {
 

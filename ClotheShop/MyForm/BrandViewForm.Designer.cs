@@ -357,6 +357,7 @@
             ProductFormBtChanged.Text = "Products";
             ProductFormBtChanged.Textcolor = Color.White;
             ProductFormBtChanged.UseVisualStyleBackColor = false;
+            ProductFormBtChanged.Click += ProductFormBtChanged_Click;
             // 
             // customButton2
             // 
