@@ -106,7 +106,7 @@ namespace ClotheShop
             string phone = RePhonetxt.Texts;
             User user = new User(name, "", phone, email, "");
             Account a = new Account(username, password);
-            AccountBLL.Instance.checkRegister(ReUserTxt, RegisPw, RegisCfPw, ReNameTxt, RePhonetxt, ReEmailTxt, a, user, this.loginPanel);
+            AccountBLL.Instance.checkRegister(ReUserTxt, RegisPw, RegisCfPw, ReNameTxt, RePhonetxt, ReEmailTxt, a, user, ReCCCDtxt, this.loginPanel);
 
 
 

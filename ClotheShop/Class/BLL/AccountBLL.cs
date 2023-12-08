@@ -54,7 +54,7 @@ namespace ClotheShop.Class.BLL
             DGV.DataSource= AccountDAO.Instance.GetAccountListByIdUserId(id);
         }
         public void checkRegister(CustomTextBox ReUserTxt,CustomTextBox RegisPw,
-            CustomTextBox RegisCfPw, CustomTextBox ReNameTxt, CustomTextBox RePhonetxt, CustomTextBox ReEmailTxt, Account account, User user, Panel loginPanel)
+            CustomTextBox RegisCfPw, CustomTextBox ReNameTxt, CustomTextBox RePhonetxt, CustomTextBox ReEmailTxt, Account account, User user, CustomTextBox cccdtxt,Panel loginPanel)
         {
 
             if (account.UserName1 == "")
@@ -110,21 +110,30 @@ namespace ClotheShop.Class.BLL
                                 }
                                 else
                                 {
-                                    if (AccountDAO.Instance.register(account.UserName1, account.Password1, user.Name1, user.Phone1, user.Email1))
+                                    if (cccdtxt.Texts.Length != 12)
                                     {
-                                        RJMessageBox.Show("Successful", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                        ReUserTxt.Texts = "";
-                                        RePhonetxt.Texts = "";
-                                        RegisCfPw.Texts = "";
-                                        RegisPw.Texts = "";
-                                        ReEmailTxt.Texts = "";
-                                        ReNameTxt.Texts = "";
-                                        loginPanel.BringToFront();
-
+                                        RJMessageBox.Show("cccd is invalid", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                        cccdtxt.Focus();
                                     }
                                     else
                                     {
-                                        RJMessageBox.Show("Failed", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        if (AccountDAO.Instance.register(account.UserName1, account.Password1, user.Name1, user.Phone1, user.Email1,cccdtxt.Texts))
+                                        {
+                                            RJMessageBox.Show("Successful", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                            ReUserTxt.Texts = "";
+                                            RePhonetxt.Texts = "";
+                                            RegisCfPw.Texts = "";
+                                            RegisPw.Texts = "";
+                                            ReEmailTxt.Texts = "";
+                                            ReNameTxt.Texts = "";
+                                            cccdtxt.Texts = "";
+                                            loginPanel.BringToFront();
+
+                                        }
+                                        else
+                                        {
+                                            RJMessageBox.Show("Failed", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        }
                                     }
                                 }
                             }

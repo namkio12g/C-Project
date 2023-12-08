@@ -29,11 +29,11 @@ namespace ClotheShop.Class.DAO
 
             return DataProvider.Instance.ExecuteQuery(sql,new Object[]{username,password});
         }
-        public bool register(string username, string password,string name,string phone,string email)
+        public bool register(string username, string password,string name,string phone,string email,string cccd)
         {
-            string sql = "INSERT INTO user (Name,Phone,Email) VALUES ( @name , @phone , @email )";
+            string sql = "INSERT INTO user (Name,Phone,Email,cccd) VALUES ( @name , @phone , @email , @cccd )";
 
-            int IDInserted=DataProvider.Instance.ExecuteInsertGetID(sql,new Object[]{name,phone,email});
+            int IDInserted=DataProvider.Instance.ExecuteInsertGetID(sql,new Object[]{name,phone,email,cccd});
             DateTime dateCreate=DateTime.Now;
             string sql2 = "INSERT INTO account (ID_user,UserName,Password,Date_Created,last_login,Date_Edited) VALUES ( @IDUser , @username , @password , @dateCreated , @date1 , @date2 )";
             return DataProvider.Instance.ExecuteInsertGetID(sql2, new Object[] {IDInserted, username, password, dateCreate,dateCreate,dateCreate })>-1;

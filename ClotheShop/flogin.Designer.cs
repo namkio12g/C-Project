@@ -37,6 +37,7 @@
             pictureBox1 = new PictureBox();
             toRegisterBt = new CustomControl.customButton();
             registerPanel = new Panel();
+            ReCCCDtxt = new CustomControl.CustomTextBox();
             ReUserTxt = new CustomControl.CustomTextBox();
             ReNameTxt = new CustomControl.CustomTextBox();
             RegisPw = new CustomControl.CustomTextBox();
@@ -183,6 +184,7 @@
             // registerPanel
             // 
             registerPanel.BackColor = Color.Transparent;
+            registerPanel.Controls.Add(ReCCCDtxt);
             registerPanel.Controls.Add(ReUserTxt);
             registerPanel.Controls.Add(ReNameTxt);
             registerPanel.Controls.Add(RegisPw);
@@ -192,11 +194,35 @@
             registerPanel.Controls.Add(BacktologinBt);
             registerPanel.Controls.Add(RegisCfPw);
             registerPanel.Controls.Add(ReEmailTxt);
-            registerPanel.Location = new Point(809, 125);
+            registerPanel.Location = new Point(820, 105);
             registerPanel.Margin = new Padding(0);
             registerPanel.Name = "registerPanel";
             registerPanel.Size = new Size(370, 486);
             registerPanel.TabIndex = 6;
+            // 
+            // ReCCCDtxt
+            // 
+            ReCCCDtxt.BackColor = Color.White;
+            ReCCCDtxt.BorderColor = Color.White;
+            ReCCCDtxt.BorderSize = 2;
+            ReCCCDtxt.EnableText = true;
+            ReCCCDtxt.FocusedColor = Color.HotPink;
+            ReCCCDtxt.Font = new Font("Rockwell", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            ReCCCDtxt.ForeColor = Color.Black;
+            ReCCCDtxt.IconImage = null;
+            ReCCCDtxt.Location = new Point(-1, 374);
+            ReCCCDtxt.Margin = new Padding(0);
+            ReCCCDtxt.Name = "ReCCCDtxt";
+            ReCCCDtxt.OnlyNumber = true;
+            ReCCCDtxt.Padding = new Padding(8, 7, 8, 7);
+            ReCCCDtxt.PasswordChar = false;
+            ReCCCDtxt.placeHolderText = "CCCD";
+            ReCCCDtxt.setIcon = false;
+            ReCCCDtxt.SetPassword = false;
+            ReCCCDtxt.Size = new Size(210, 36);
+            ReCCCDtxt.TabIndex = 10;
+            ReCCCDtxt.Texts = "";
+            ReCCCDtxt.Underlined1 = true;
             // 
             // ReUserTxt
             // 
@@ -208,7 +234,7 @@
             ReUserTxt.Font = new Font("Rockwell", 10F, FontStyle.Regular, GraphicsUnit.Point);
             ReUserTxt.ForeColor = Color.Black;
             ReUserTxt.IconImage = (Image)resources.GetObject("ReUserTxt.IconImage");
-            ReUserTxt.Location = new Point(-1, 136);
+            ReUserTxt.Location = new Point(-1, 122);
             ReUserTxt.Margin = new Padding(0);
             ReUserTxt.Name = "ReUserTxt";
             ReUserTxt.OnlyNumber = false;
@@ -232,7 +258,7 @@
             ReNameTxt.Font = new Font("Rockwell", 10F, FontStyle.Regular, GraphicsUnit.Point);
             ReNameTxt.ForeColor = Color.Black;
             ReNameTxt.IconImage = (Image)resources.GetObject("ReNameTxt.IconImage");
-            ReNameTxt.Location = new Point(172, 294);
+            ReNameTxt.Location = new Point(171, 271);
             ReNameTxt.Margin = new Padding(0);
             ReNameTxt.Name = "ReNameTxt";
             ReNameTxt.OnlyNumber = false;
@@ -256,7 +282,7 @@
             RegisPw.Font = new Font("Rockwell", 10F, FontStyle.Regular, GraphicsUnit.Point);
             RegisPw.ForeColor = Color.Black;
             RegisPw.IconImage = (Image)resources.GetObject("RegisPw.IconImage");
-            RegisPw.Location = new Point(0, 188);
+            RegisPw.Location = new Point(-1, 171);
             RegisPw.Margin = new Padding(0);
             RegisPw.Name = "RegisPw";
             RegisPw.OnlyNumber = false;
@@ -315,7 +341,7 @@
             RePhonetxt.Font = new Font("Rockwell", 10F, FontStyle.Regular, GraphicsUnit.Point);
             RePhonetxt.ForeColor = Color.Black;
             RePhonetxt.IconImage = (Image)resources.GetObject("RePhonetxt.IconImage");
-            RePhonetxt.Location = new Point(-1, 294);
+            RePhonetxt.Location = new Point(-1, 271);
             RePhonetxt.Margin = new Padding(0);
             RePhonetxt.Name = "RePhonetxt";
             RePhonetxt.OnlyNumber = false;
@@ -364,7 +390,7 @@
             RegisCfPw.Font = new Font("Rockwell", 10F, FontStyle.Regular, GraphicsUnit.Point);
             RegisCfPw.ForeColor = Color.Black;
             RegisCfPw.IconImage = (Image)resources.GetObject("RegisCfPw.IconImage");
-            RegisCfPw.Location = new Point(0, 241);
+            RegisCfPw.Location = new Point(0, 222);
             RegisCfPw.Margin = new Padding(0);
             RegisCfPw.Name = "RegisCfPw";
             RegisCfPw.OnlyNumber = false;
@@ -388,7 +414,7 @@
             ReEmailTxt.Font = new Font("Rockwell", 10F, FontStyle.Regular, GraphicsUnit.Point);
             ReEmailTxt.ForeColor = Color.Black;
             ReEmailTxt.IconImage = (Image)resources.GetObject("ReEmailTxt.IconImage");
-            ReEmailTxt.Location = new Point(0, 345);
+            ReEmailTxt.Location = new Point(-1, 321);
             ReEmailTxt.Margin = new Padding(0);
             ReEmailTxt.Name = "ReEmailTxt";
             ReEmailTxt.OnlyNumber = false;
@@ -397,7 +423,7 @@
             ReEmailTxt.placeHolderText = "Email";
             ReEmailTxt.setIcon = true;
             ReEmailTxt.SetPassword = false;
-            ReEmailTxt.Size = new Size(256, 36);
+            ReEmailTxt.Size = new Size(305, 36);
             ReEmailTxt.TabIndex = 9;
             ReEmailTxt.Texts = "";
             ReEmailTxt.Underlined1 = true;
@@ -452,8 +478,8 @@
             ClientSize = new Size(1247, 780);
             Controls.Add(pictureBox3);
             Controls.Add(panel1);
-            Controls.Add(loginPanel);
             Controls.Add(registerPanel);
+            Controls.Add(loginPanel);
             ForeColor = SystemColors.Window;
             FormBorderStyle = FormBorderStyle.None;
             Name = "flogin";
@@ -490,5 +516,6 @@
         private Panel panel1;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private PictureBox pictureBox3;
+        private CustomControl.CustomTextBox ReCCCDtxt;
     }
 }
