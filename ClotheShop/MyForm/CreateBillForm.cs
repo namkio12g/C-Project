@@ -92,7 +92,7 @@ namespace ClotheShop.MyForm
 
                         break;
                     }
-                    
+
                 }
                 if (flag)
                 {
@@ -240,7 +240,7 @@ namespace ClotheShop.MyForm
                     int new_num = (int.Parse(dataTable.Rows[rowIndex][3].ToString()) + number);
                     dataTable.Rows[rowIndex][3] = new_num.ToString();
                     dataTable.Rows[rowIndex][4] = (int.Parse(dataTable.Rows[rowIndex][2].ToString()) * new_num).ToString();
-                    
+
 
                 }
                 else

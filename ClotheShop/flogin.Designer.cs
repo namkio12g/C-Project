@@ -478,8 +478,8 @@
             ClientSize = new Size(1247, 780);
             Controls.Add(pictureBox3);
             Controls.Add(panel1);
-            Controls.Add(registerPanel);
             Controls.Add(loginPanel);
+            Controls.Add(registerPanel);
             ForeColor = SystemColors.Window;
             FormBorderStyle = FormBorderStyle.None;
             Name = "flogin";
